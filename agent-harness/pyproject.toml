@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cli-fpp"
+version = "0.1.0"
+description = "Command-line client for Falcon Player (FPP) via REST API"
+readme = "cli_fpp/README.md"
+requires-python = ">=3.10"
+authors = [{ name = "palpal2312" }]
+dependencies = [
+    "click>=8.0.0",
+    "prompt-toolkit>=3.0.0",
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
+
+[project.scripts]
+cli-fpp = "cli_fpp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cli_fpp*"]
+
+[tool.setuptools.package-data]
+"cli_fpp" = ["skills/*.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["cli_fpp/tests"]
+pythonpath = ["."]
