@@ -28,8 +28,9 @@ class TestBackend:
         assert fpp_backend._url(BASE, "/api/playlists") == f"{BASE}/api/playlists"
 
     def test_url_missing_base(self):
-        with pytest.raises(ValueError, match="base URL not configured"):
-            fpp_backend._url("", "/api/playlists")
+        with patch.dict("os.environ", {}, clear=True):
+            with pytest.raises(ValueError, match="base URL not configured"):
+                fpp_backend._url("", "/api/playlists")
 
     def test_command_path(self):
         path = fpp_backend.command_path("Start Playlist", "My Show", "1", "true")
@@ -80,7 +81,13 @@ class TestPlaylist:
     def test_stop_now(self, mock_get):
         playlist.stop(graceful=False, base_url=BASE)
         args, _ = mock_get.call_args
-        assert "Stop%20Now" in args[0] or "Stop Now" in args[0]
+        assert args[0] == "/api/playlists/stop"
+
+    @patch("cli_fpp.utils.fpp_backend.api_get")
+    def test_stop_graceful(self, mock_get):
+        playlist.stop(graceful=True, base_url=BASE)
+        args, _ = mock_get.call_args
+        assert args[0] == "/api/playlists/stopgracefully"
 
 
 class TestCommands:
@@ -95,3 +102,22 @@ class TestCommands:
         commands.trigger_preset("3", base_url=BASE)
         args, _ = mock_get.call_args
         assert "Trigger%20Command%20Preset%20Slot" in args[0] or "Slot" in args[0]
+
+
+class TestSystem:
+    @patch("cli_fpp.utils.fpp_backend.api_post")
+    def test_volume_set(self, mock_post):
+        from cli_fpp.core import system
+
+        system.volume_set(70, base_url=BASE)
+        mock_post.assert_called_once_with("/api/system/volume", {"volume": 70}, base_url=BASE)
+
+
+class TestSequence:
+    @patch("cli_fpp.utils.fpp_backend.api_get")
+    def test_toggle_pause(self, mock_get):
+        from cli_fpp.core import sequence
+
+        sequence.toggle_pause(base_url=BASE)
+        args, _ = mock_get.call_args
+        assert args[0] == "/api/sequence/current/togglePause"

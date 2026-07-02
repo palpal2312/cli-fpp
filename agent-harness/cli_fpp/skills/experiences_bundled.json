@@ -1,0 +1,106 @@
+[
+  {
+    "id": "global.http-port-81",
+    "scope": "global",
+    "title": "Port 81 = HTTP, không phải HTTPS",
+    "body": "User gõ https://IP:81 → SSLError WRONG_VERSION_NUMBER. Dùng http://192.168.x.x:81",
+    "tags": ["connection", "auth", "campaign"]
+  },
+  {
+    "id": "global.limonade-system-status",
+    "scope": "global",
+    "title": "system/status lỗi limonade PHP",
+    "body": "GET /api/system/status có thể fatal limonade.php trên một số instance. Thay bằng player status, player current, api fppd get-status.",
+    "tags": ["api", "status", "campaign"],
+    "suggest_override": {
+      "when_intent": "system_status",
+      "proposed_cli": [
+        "cli-fpp player status --json",
+        "cli-fpp player current --json"
+      ]
+    }
+  },
+  {
+    "id": "global.auth-401",
+    "scope": "global",
+    "title": "Thiếu HTTP auth → 401",
+    "body": "Luôn cấu hình username/password trong target profile hoặc -u/-p. FPP port 81 thường dùng admin.",
+    "tags": ["connection", "auth", "campaign"]
+  },
+  {
+    "id": "global.campaign-portrait-transpose",
+    "scope": "global",
+    "title": "Chiến dịch màn dọc: transpose trước upload",
+    "body": "Portrait signage: media upload --auto-orient + kiểm tra dev host display rotate. FPP không xoay ảnh trong player.",
+    "tags": ["campaign", "media", "display"]
+  },
+  {
+    "id": "global.campaign-qr-creative",
+    "scope": "global",
+    "title": "QR trên banner creative",
+    "body": "Nhúng QR trong file ảnh creative hoặc FPP Image playlist entry.",
+    "tags": ["campaign", "media"]
+  },
+  {
+    "id": "global.campaign-schedule-peak",
+    "scope": "global",
+    "title": "Schedule giờ cao điểm",
+    "body": "Giờ cao điểm: tạo schedule trên web UI → cli-fpp schedule list --json → schedule reload sau khi sửa.",
+    "tags": ["campaign", "schedule"]
+  },
+  {
+    "id": "global.campaign-multi-target",
+    "scope": "global",
+    "title": "Nhiều cửa hàng = nhiều target",
+    "body": "Mỗi màn một target profile. Lặp lệnh với -t shop-a / -t shop-b hoặc gọi cli-fpp từ script/agent bên ngoài.",
+    "tags": ["campaign", "connection"]
+  },
+  {
+    "id": "device.orangepi.fb-rotate-reboot",
+    "scope": "device",
+    "device_type": "orangepi",
+    "title": "RK356x: xoay màn cần boot rotate=90 + reboot",
+    "body": "Chỉ ghi fb0/rotate sysfs thường chưa xoay scanout thật. dev host display rotate/persist ghi orangepiEnv.txt video=...,rotate=90 — bắt buộc reboot Orange Pi sau lần đầu.",
+    "tags": ["display", "ssh", "dev", "campaign"]
+  },
+  {
+    "id": "device.orangepi.modetest-invalid",
+    "scope": "device",
+    "device_type": "orangepi",
+    "title": "modetest rotation Invalid argument",
+    "body": "modetest -w plane rotation 90° có thể Invalid argument trên RK356x. Không dùng — dùng boot rotate trong orangepiEnv.txt.",
+    "tags": ["display", "ssh"]
+  },
+  {
+    "id": "device.orangepi.docker-fpp-video",
+    "scope": "device",
+    "device_type": "orangepi",
+    "title": "Video trong Docker Orange Pi",
+    "body": "GStreamer/VLC trong fpp-docker trên Orange Pi hay lỗi pipewire/audio. Ảnh fb0 ổn định hơn video; xem FPP #1027 nếu cần video.",
+    "tags": ["media", "docker", "campaign"]
+  },
+  {
+    "id": "device.orangepi.portrait-media",
+    "scope": "device",
+    "device_type": "orangepi",
+    "title": "Portrait signage: xoay media + host",
+    "body": "FPP không xoay ảnh trong player (chỉ flip fb0). Màn portrait: media upload auto-transpose + dev host display rotate=90.",
+    "tags": ["media", "display", "campaign"]
+  },
+  {
+    "id": "player.8x.channel-output-api",
+    "scope": "player",
+    "player_line": "8.x",
+    "title": "Channel output API có thể lỗi PHP",
+    "body": "/api/channel/output/* đôi khi trả lỗi limonade. Virtual Matrix: ưu tiên SSH sửa co-other.json hoặc cli-fpp dev fpp virtual-matrix set.",
+    "tags": ["api", "dev", "virtual-matrix"]
+  },
+  {
+    "id": "player.8x.rotate-patch",
+    "scope": "player",
+    "player_line": "8.x",
+    "title": "Virtual Matrix rotate 90/270",
+    "body": "Bản FPP gốc chỉ invert/flipHorizontal. Fork palpal2312/fpp thêm rotate 0/90/180/270 trong FBMatrix — cần dev fpp deploy/build trên target.",
+    "tags": ["dev", "virtual-matrix"]
+  }
+]

@@ -19,6 +19,20 @@ def _get_base_url() -> str:
     return os.environ.get("FPP_BASE_URL", "").rstrip("/")
 
 
+def _get_auth() -> tuple[str, str] | None:
+    from cli_fpp.core.project import get_auth
+
+    return get_auth()
+
+
+def _verify_ssl() -> bool:
+    return os.environ.get("FPP_VERIFY_SSL", "true").strip().lower() not in (
+        "0",
+        "false",
+        "no",
+    )
+
+
 def _url(base_url: str | None, path: str) -> str:
     base = (base_url or _get_base_url()).rstrip("/")
     if not base:
@@ -51,9 +65,11 @@ def api_request(
     endpoint: str,
     *,
     base_url: str | None = None,
+    auth: tuple[str, str] | None = None,
     params: dict[str, Any] | None = None,
     json_data: Any | None = None,
     timeout: int | None = None,
+    verify_ssl: bool | None = None,
 ) -> Any:
     """Execute an HTTP request against a running FPP instance."""
     url = _url(base_url, endpoint)
@@ -61,9 +77,11 @@ def api_request(
         method,
         url,
         headers=_headers(),
+        auth=auth if auth is not None else _get_auth(),
         params=params,
         json=json_data,
         timeout=timeout or DEFAULT_TIMEOUT,
+        verify=verify_ssl if verify_ssl is not None else _verify_ssl(),
     )
     resp.raise_for_status()
     return _handle_response(resp)
@@ -73,9 +91,10 @@ def api_get(
     endpoint: str,
     *,
     base_url: str | None = None,
+    auth: tuple[str, str] | None = None,
     params: dict[str, Any] | None = None,
 ) -> Any:
-    return api_request("GET", endpoint, base_url=base_url, params=params)
+    return api_request("GET", endpoint, base_url=base_url, auth=auth, params=params)
 
 
 def api_post(
@@ -83,8 +102,9 @@ def api_post(
     data: Any | None = None,
     *,
     base_url: str | None = None,
+    auth: tuple[str, str] | None = None,
 ) -> Any:
-    return api_request("POST", endpoint, base_url=base_url, json_data=data)
+    return api_request("POST", endpoint, base_url=base_url, auth=auth, json_data=data)
 
 
 def api_put(
@@ -92,16 +112,18 @@ def api_put(
     data: Any | None = None,
     *,
     base_url: str | None = None,
+    auth: tuple[str, str] | None = None,
 ) -> Any:
-    return api_request("PUT", endpoint, base_url=base_url, json_data=data)
+    return api_request("PUT", endpoint, base_url=base_url, auth=auth, json_data=data)
 
 
 def api_delete(
     endpoint: str,
     *,
     base_url: str | None = None,
+    auth: tuple[str, str] | None = None,
 ) -> Any:
-    return api_request("DELETE", endpoint, base_url=base_url)
+    return api_request("DELETE", endpoint, base_url=base_url, auth=auth)
 
 
 def command_path(command: str, *args: str) -> str:
@@ -109,6 +131,11 @@ def command_path(command: str, *args: str) -> str:
     segments = [quote(command, safe="")]
     segments.extend(quote(str(a), safe="") for a in args)
     return "/api/command/" + "/".join(segments)
+
+
+def quote_segment(value: str) -> str:
+    """URL-encode a single path segment."""
+    return quote(str(value), safe="")
 
 
 def ping(base_url: str | None = None) -> dict[str, Any]:

@@ -9,24 +9,38 @@ description = "Command-line client for Falcon Player (FPP) via REST API"
 readme = "cli_fpp/README.md"
 requires-python = ">=3.10"
 authors = [{ name = "palpal2312" }]
+license = { text = "MIT" }
+keywords = ["cli", "fpp", "falcon-player", "smart-ads"]
 dependencies = [
     "click>=8.0.0",
     "prompt-toolkit>=3.0.0",
     "requests>=2.28.0",
+    "paramiko>=3.0.0",
+    "Pillow>=10.0.0",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=7.0.0", "pytest-cov>=4.0.0"]
+contrib = []
 
 [project.scripts]
-cli-fpp = "cli_fpp.cli:main"
+cli-fpp = "cli_fpp.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/palpal2312/cli-anything-fpp"
+Repository = "https://github.com/palpal2312/cli-anything-fpp"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["cli_fpp*"]
 
 [tool.setuptools.package-data]
-"cli_fpp" = ["skills/*.md"]
+"cli_fpp" = [
+    "skills/*.md",
+    "skills/*.json",
+    "skills/contributions/**/*",
+    "cli-manifest.json",
+]
 
 [tool.pytest.ini_options]
 testpaths = ["cli_fpp/tests"]

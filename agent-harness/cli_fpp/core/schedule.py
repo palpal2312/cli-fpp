@@ -12,4 +12,12 @@ def list_schedules(*, base_url: str | None = None) -> Any:
 
 
 def reload(*, base_url: str | None = None) -> Any:
-    return api.api_get(api.command_path("Reload Schedule"), base_url=base_url)
+    return api.api_post("/api/schedule/reload", None, base_url=base_url)
+
+
+def extend(seconds: int, *, base_url: str | None = None) -> Any:
+    return api.api_get(api.command_path("Extend Schedule", str(seconds)), base_url=base_url)
+
+
+def start_next(*, base_url: str | None = None) -> Any:
+    return api.api_get(api.command_path("Start Next Scheduled Item"), base_url=base_url)

@@ -1,0 +1,3063 @@
+{
+  "version": "0.1.0",
+  "generatedAt": "2026-07-02T19:51:54.609668+00:00",
+  "entry": "cli-fpp",
+  "packaging": {
+    "style": "claudekit-like",
+    "entryModule": "cli_fpp.__main__:main",
+    "thinBin": "bin/cli-fpp"
+  },
+  "runtime": {
+    "python": ">=3.10",
+    "gh": ">=2.20.0 (system; optional except contribute --github)"
+  },
+  "commands": {
+    "api": {
+      "name": "api",
+      "path": "api",
+      "type": "group",
+      "description": "Full FPP REST API (253 ops from OpenAPI). Use: api <tag> <command>.",
+      "subcommands": [
+        "backups",
+        "call",
+        "cape",
+        "channel",
+        "command",
+        "commandPresets",
+        "commands",
+        "configfile",
+        "dir",
+        "effects",
+        "email",
+        "events",
+        "file",
+        "files",
+        "fppd",
+        "git",
+        "gpio",
+        "help",
+        "list",
+        "media",
+        "models",
+        "network",
+        "options",
+        "overlays",
+        "pipewire",
+        "player",
+        "playlist",
+        "playlists",
+        "plugin",
+        "proxies",
+        "proxy",
+        "remoteAction",
+        "remotes",
+        "schedule",
+        "scripts",
+        "sequence",
+        "settings",
+        "statistics",
+        "system",
+        "testmode",
+        "time"
+      ]
+    },
+    "api.backups": {
+      "name": "backups",
+      "path": "api backups",
+      "type": "group",
+      "description": "OpenAPI tag: backups.",
+      "subcommands": [
+        "delete-configuration-directory-backupfilename",
+        "get-configuration-directory-backupfilename",
+        "get-configuration-list",
+        "get-configuration-list-devicename",
+        "get-devices",
+        "get-list",
+        "get-list-devicename",
+        "post-configuration",
+        "post-configuration-restore-directory-backupfilename",
+        "post-devices-mount-devicename-mountlocation",
+        "post-devices-unmount-devicename-mountlocation"
+      ]
+    },
+    "api.backups.delete-configuration-directory-backupfilename": {
+      "name": "delete-configuration-directory-backupfilename",
+      "path": "api backups delete-configuration-directory-backupfilename",
+      "type": "command",
+      "description": "Delete JSON backup"
+    },
+    "api.backups.get-configuration-directory-backupfilename": {
+      "name": "get-configuration-directory-backupfilename",
+      "path": "api backups get-configuration-directory-backupfilename",
+      "type": "command",
+      "description": "Download JSON backup"
+    },
+    "api.backups.get-configuration-list": {
+      "name": "get-configuration-list",
+      "path": "api backups get-configuration-list",
+      "type": "command",
+      "description": "Get available JSON backups"
+    },
+    "api.backups.get-configuration-list-devicename": {
+      "name": "get-configuration-list-devicename",
+      "path": "api backups get-configuration-list-devicename",
+      "type": "command",
+      "description": "Get list of JSON backups on device"
+    },
+    "api.backups.get-devices": {
+      "name": "get-devices",
+      "path": "api backups get-devices",
+      "type": "command",
+      "description": "Get devices available for backups"
+    },
+    "api.backups.get-list": {
+      "name": "get-list",
+      "path": "api backups get-list",
+      "type": "command",
+      "description": "Get available backups"
+    },
+    "api.backups.get-list-devicename": {
+      "name": "get-list-devicename",
+      "path": "api backups get-list-devicename",
+      "type": "command",
+      "description": "Get list of backups on device"
+    },
+    "api.backups.post-configuration": {
+      "name": "post-configuration",
+      "path": "api backups post-configuration",
+      "type": "command",
+      "description": "Create JSON backup"
+    },
+    "api.backups.post-configuration-restore-directory-backupfilename": {
+      "name": "post-configuration-restore-directory-backupfilename",
+      "path": "api backups post-configuration-restore-directory-backupfilename",
+      "type": "command",
+      "description": "Restores JSON backup"
+    },
+    "api.backups.post-devices-mount-devicename-mountlocation": {
+      "name": "post-devices-mount-devicename-mountlocation",
+      "path": "api backups post-devices-mount-devicename-mountlocation",
+      "type": "command",
+      "description": "Mount device"
+    },
+    "api.backups.post-devices-unmount-devicename-mountlocation": {
+      "name": "post-devices-unmount-devicename-mountlocation",
+      "path": "api backups post-devices-unmount-devicename-mountlocation",
+      "type": "command",
+      "description": "Unmount device"
+    },
+    "api.call": {
+      "name": "call",
+      "path": "api call",
+      "type": "command",
+      "description": "Call any operation by id (from api list)."
+    },
+    "api.cape": {
+      "name": "cape",
+      "path": "api cape",
+      "type": "group",
+      "description": "OpenAPI tag: cape.",
+      "subcommands": [
+        "get-cape",
+        "get-eeprom-signingdata-key-order",
+        "get-eeprom-signingfile-key-order",
+        "get-options",
+        "get-panel",
+        "get-panel-key",
+        "get-strings",
+        "get-strings-key",
+        "post-eeprom-sign-key-order",
+        "post-eeprom-signingdata",
+        "post-eeprom-voucher"
+      ]
+    },
+    "api.cape.get-cape": {
+      "name": "get-cape",
+      "path": "api cape get-cape",
+      "type": "command",
+      "description": "Get cape information"
+    },
+    "api.cape.get-eeprom-signingdata-key-order": {
+      "name": "get-eeprom-signingdata-key-order",
+      "path": "api cape get-eeprom-signingdata-key-order",
+      "type": "command",
+      "description": "Get signing data as text"
+    },
+    "api.cape.get-eeprom-signingfile-key-order": {
+      "name": "get-eeprom-signingfile-key-order",
+      "path": "api cape get-eeprom-signingfile-key-order",
+      "type": "command",
+      "description": "Get signing data as binary"
+    },
+    "api.cape.get-options": {
+      "name": "get-options",
+      "path": "api cape get-options",
+      "type": "command",
+      "description": "Get cape options"
+    },
+    "api.cape.get-panel": {
+      "name": "get-panel",
+      "path": "api cape get-panel",
+      "type": "command",
+      "description": "Get all cape panels"
+    },
+    "api.cape.get-panel-key": {
+      "name": "get-panel-key",
+      "path": "api cape get-panel-key",
+      "type": "command",
+      "description": "Get cape panel"
+    },
+    "api.cape.get-strings": {
+      "name": "get-strings",
+      "path": "api cape get-strings",
+      "type": "command",
+      "description": "Get all cape strings"
+    },
+    "api.cape.get-strings-key": {
+      "name": "get-strings-key",
+      "path": "api cape get-strings-key",
+      "type": "command",
+      "description": "Get cape string"
+    },
+    "api.cape.post-eeprom-sign-key-order": {
+      "name": "post-eeprom-sign-key-order",
+      "path": "api cape post-eeprom-sign-key-order",
+      "type": "command",
+      "description": "Sign EEPROM"
+    },
+    "api.cape.post-eeprom-signingdata": {
+      "name": "post-eeprom-signingdata",
+      "path": "api cape post-eeprom-signingdata",
+      "type": "command",
+      "description": "Upload signed EEPROM"
+    },
+    "api.cape.post-eeprom-voucher": {
+      "name": "post-eeprom-voucher",
+      "path": "api cape post-eeprom-voucher",
+      "type": "command",
+      "description": "Redeem signing voucher"
+    },
+    "api.channel": {
+      "name": "channel",
+      "path": "api channel",
+      "type": "group",
+      "description": "OpenAPI tag: channel.",
+      "subcommands": [
+        "delete-input-stats",
+        "get-input-stats",
+        "get-output-file",
+        "get-output-processors",
+        "post-output-file",
+        "post-output-processors"
+      ]
+    },
+    "api.channel.delete-input-stats": {
+      "name": "delete-input-stats",
+      "path": "api channel delete-input-stats",
+      "type": "command",
+      "description": "Reset E1.31 stats"
+    },
+    "api.channel.get-input-stats": {
+      "name": "get-input-stats",
+      "path": "api channel get-input-stats",
+      "type": "command",
+      "description": "Get E1.31 stats"
+    },
+    "api.channel.get-output-file": {
+      "name": "get-output-file",
+      "path": "api channel get-output-file",
+      "type": "command",
+      "description": "Get channel output"
+    },
+    "api.channel.get-output-processors": {
+      "name": "get-output-processors",
+      "path": "api channel get-output-processors",
+      "type": "command",
+      "description": "Get output processors"
+    },
+    "api.channel.post-output-file": {
+      "name": "post-output-file",
+      "path": "api channel post-output-file",
+      "type": "command",
+      "description": "Set channel output"
+    },
+    "api.channel.post-output-processors": {
+      "name": "post-output-processors",
+      "path": "api channel post-output-processors",
+      "type": "command",
+      "description": "Set output processors"
+    },
+    "api.command": {
+      "name": "command",
+      "path": "api command",
+      "type": "group",
+      "description": "OpenAPI tag: command.",
+      "subcommands": [
+        "get-command",
+        "post-command",
+        "post-command-1"
+      ]
+    },
+    "api.command.get-command": {
+      "name": "get-command",
+      "path": "api command get-command",
+      "type": "command",
+      "description": "command/{command}"
+    },
+    "api.command.post-command": {
+      "name": "post-command",
+      "path": "api command post-command",
+      "type": "command",
+      "description": "command"
+    },
+    "api.command.post-command-1": {
+      "name": "post-command-1",
+      "path": "api command post-command-1",
+      "type": "command",
+      "description": "command/{command}"
+    },
+    "api.commandPresets": {
+      "name": "commandPresets",
+      "path": "api commandPresets",
+      "type": "group",
+      "description": "OpenAPI tag: commandPresets.",
+      "subcommands": [
+        "get-commandpresets",
+        "get-name"
+      ]
+    },
+    "api.commandPresets.get-commandpresets": {
+      "name": "get-commandpresets",
+      "path": "api commandPresets get-commandpresets",
+      "type": "command",
+      "description": "commandPresets"
+    },
+    "api.commandPresets.get-name": {
+      "name": "get-name",
+      "path": "api commandPresets get-name",
+      "type": "command",
+      "description": "commandPresets/{name}"
+    },
+    "api.commands": {
+      "name": "commands",
+      "path": "api commands",
+      "type": "group",
+      "description": "OpenAPI tag: commands.",
+      "subcommands": [
+        "get-command",
+        "get-commands"
+      ]
+    },
+    "api.commands.get-command": {
+      "name": "get-command",
+      "path": "api commands get-command",
+      "type": "command",
+      "description": "commands/{command}"
+    },
+    "api.commands.get-commands": {
+      "name": "get-commands",
+      "path": "api commands get-commands",
+      "type": "command",
+      "description": "commands"
+    },
+    "api.configfile": {
+      "name": "configfile",
+      "path": "api configfile",
+      "type": "group",
+      "description": "OpenAPI tag: configfile.",
+      "subcommands": [
+        "delete",
+        "get",
+        "get-configfile",
+        "post"
+      ]
+    },
+    "api.configfile.delete": {
+      "name": "delete",
+      "path": "api configfile delete",
+      "type": "command",
+      "description": "Delete configuration file"
+    },
+    "api.configfile.get": {
+      "name": "get",
+      "path": "api configfile get",
+      "type": "command",
+      "description": "Get file or directory list"
+    },
+    "api.configfile.get-configfile": {
+      "name": "get-configfile",
+      "path": "api configfile get-configfile",
+      "type": "command",
+      "description": "Get directory list"
+    },
+    "api.configfile.post": {
+      "name": "post",
+      "path": "api configfile post",
+      "type": "command",
+      "description": "Upload configuration file"
+    },
+    "api.dir": {
+      "name": "dir",
+      "path": "api dir",
+      "type": "group",
+      "description": "OpenAPI tag: dir.",
+      "subcommands": [
+        "delete-dirname-subdir",
+        "post-dirname-subdir"
+      ]
+    },
+    "api.dir.delete-dirname-subdir": {
+      "name": "delete-dirname-subdir",
+      "path": "api dir delete-dirname-subdir",
+      "type": "command",
+      "description": "Delete empty subdirectory"
+    },
+    "api.dir.post-dirname-subdir": {
+      "name": "post-dirname-subdir",
+      "path": "api dir post-dirname-subdir",
+      "type": "command",
+      "description": "Create subdirectory"
+    },
+    "api.effects": {
+      "name": "effects",
+      "path": "api effects",
+      "type": "group",
+      "description": "OpenAPI tag: effects.",
+      "subcommands": [
+        "get-all",
+        "get-effects"
+      ]
+    },
+    "api.effects.get-all": {
+      "name": "get-all",
+      "path": "api effects get-all",
+      "type": "command",
+      "description": "Get all effects"
+    },
+    "api.effects.get-effects": {
+      "name": "get-effects",
+      "path": "api effects get-effects",
+      "type": "command",
+      "description": "Get effects"
+    },
+    "api.email": {
+      "name": "email",
+      "path": "api email",
+      "type": "group",
+      "description": "OpenAPI tag: email.",
+      "subcommands": [
+        "post-configure",
+        "post-test"
+      ]
+    },
+    "api.email.post-configure": {
+      "name": "post-configure",
+      "path": "api email post-configure",
+      "type": "command",
+      "description": "Set email options"
+    },
+    "api.email.post-test": {
+      "name": "post-test",
+      "path": "api email post-test",
+      "type": "command",
+      "description": "Send test email"
+    },
+    "api.events": {
+      "name": "events",
+      "path": "api events",
+      "type": "group",
+      "description": "OpenAPI tag: events.",
+      "subcommands": [
+        "get-eventid",
+        "get-eventid-trigger",
+        "get-events"
+      ]
+    },
+    "api.events.get-eventid": {
+      "name": "get-eventid",
+      "path": "api events get-eventid",
+      "type": "command",
+      "description": "Get event file"
+    },
+    "api.events.get-eventid-trigger": {
+      "name": "get-eventid-trigger",
+      "path": "api events get-eventid-trigger",
+      "type": "command",
+      "description": "Trigger event"
+    },
+    "api.events.get-events": {
+      "name": "get-events",
+      "path": "api events get-events",
+      "type": "command",
+      "description": "Get all event files"
+    },
+    "api.file": {
+      "name": "file",
+      "path": "api file",
+      "type": "group",
+      "description": "OpenAPI tag: file.",
+      "subcommands": [
+        "delete-dirname-wildcard",
+        "get-dirname-tailfollow-tail",
+        "get-dirname-wildcard",
+        "get-info-plugin-ext-wildcard",
+        "get-move-filename",
+        "get-onupload-ext-wildcard",
+        "post-dirname",
+        "post-dirname-copy-source-dest",
+        "post-dirname-name",
+        "post-dirname-rename-source-dest"
+      ]
+    },
+    "api.file.delete-dirname-wildcard": {
+      "name": "delete-dirname-wildcard",
+      "path": "api file delete-dirname-wildcard",
+      "type": "command",
+      "description": "Delete file or directory"
+    },
+    "api.file.get-dirname-tailfollow-tail": {
+      "name": "get-dirname-tailfollow-tail",
+      "path": "api file get-dirname-tailfollow-tail",
+      "type": "command",
+      "description": "Stream tail of file"
+    },
+    "api.file.get-dirname-wildcard": {
+      "name": "get-dirname-wildcard",
+      "path": "api file get-dirname-wildcard",
+      "type": "command",
+      "description": "Get file contents"
+    },
+    "api.file.get-info-plugin-ext-wildcard": {
+      "name": "get-info-plugin-ext-wildcard",
+      "path": "api file get-info-plugin-ext-wildcard",
+      "type": "command",
+      "description": "Get plugin file info"
+    },
+    "api.file.get-move-filename": {
+      "name": "get-move-filename",
+      "path": "api file get-move-filename",
+      "type": "command",
+      "description": "Move file"
+    },
+    "api.file.get-onupload-ext-wildcard": {
+      "name": "get-onupload-ext-wildcard",
+      "path": "api file get-onupload-ext-wildcard",
+      "type": "command",
+      "description": "Notify plugin of upload"
+    },
+    "api.file.post-dirname": {
+      "name": "post-dirname",
+      "path": "api file post-dirname",
+      "type": "command",
+      "description": "Upload file"
+    },
+    "api.file.post-dirname-copy-source-dest": {
+      "name": "post-dirname-copy-source-dest",
+      "path": "api file post-dirname-copy-source-dest",
+      "type": "command",
+      "description": "Copy file"
+    },
+    "api.file.post-dirname-name": {
+      "name": "post-dirname-name",
+      "path": "api file post-dirname-name",
+      "type": "command",
+      "description": "Upload file to directory"
+    },
+    "api.file.post-dirname-rename-source-dest": {
+      "name": "post-dirname-rename-source-dest",
+      "path": "api file post-dirname-rename-source-dest",
+      "type": "command",
+      "description": "Rename file"
+    },
+    "api.files": {
+      "name": "files",
+      "path": "api files",
+      "type": "group",
+      "description": "OpenAPI tag: files.",
+      "subcommands": [
+        "get-dirname",
+        "get-zip-dirnames"
+      ]
+    },
+    "api.files.get-dirname": {
+      "name": "get-dirname",
+      "path": "api files get-dirname",
+      "type": "command",
+      "description": "Get all files"
+    },
+    "api.files.get-zip-dirnames": {
+      "name": "get-zip-dirnames",
+      "path": "api files get-zip-dirnames",
+      "type": "command",
+      "description": "Get zip file of directories"
+    },
+    "api.fppd": {
+      "name": "fppd",
+      "path": "api fppd",
+      "type": "group",
+      "description": "OpenAPI tag: fppd.",
+      "subcommands": [
+        "delete-e131stats",
+        "get-e131stats",
+        "get-effects",
+        "get-log",
+        "get-mqtt-cache",
+        "get-multisyncstats",
+        "get-multisyncsystems",
+        "get-playlist-config",
+        "get-playlist-filetime",
+        "get-playlists",
+        "get-ports",
+        "get-ports-list",
+        "get-ports-pixelcount",
+        "get-ports-stop",
+        "get-schedule",
+        "get-sequence",
+        "get-status",
+        "get-testing",
+        "get-testing-tests",
+        "get-testing-tests-pattern",
+        "get-version",
+        "get-volume",
+        "get-warnings",
+        "get-warnings-full",
+        "post-effects-name",
+        "post-falcon-hardware",
+        "post-gpio-ext",
+        "post-log-level-level",
+        "post-outputs",
+        "post-outputs-remap",
+        "post-playlists-name-item-item",
+        "post-playlists-name-nextitem",
+        "post-playlists-name-previtem",
+        "post-playlists-name-restartitem",
+        "post-playlists-name-section-section",
+        "post-playlists-name-start",
+        "post-playlists-name-stop",
+        "post-playlists-stop",
+        "post-restart",
+        "post-schedule",
+        "post-sequences-name-back",
+        "post-sequences-name-pause",
+        "post-sequences-name-start",
+        "post-sequences-name-step",
+        "post-sequences-name-stop",
+        "post-settings-reload",
+        "post-settings-reload-setting",
+        "post-shutdown",
+        "post-testing",
+        "post-volume-volume",
+        "put-playlists-name-settings"
+      ]
+    },
+    "api.fppd.delete-e131stats": {
+      "name": "delete-e131stats",
+      "path": "api fppd delete-e131stats",
+      "type": "command",
+      "description": "fppd/e131stats"
+    },
+    "api.fppd.get-e131stats": {
+      "name": "get-e131stats",
+      "path": "api fppd get-e131stats",
+      "type": "command",
+      "description": "fppd/e131stats"
+    },
+    "api.fppd.get-effects": {
+      "name": "get-effects",
+      "path": "api fppd get-effects",
+      "type": "command",
+      "description": "fppd/effects"
+    },
+    "api.fppd.get-log": {
+      "name": "get-log",
+      "path": "api fppd get-log",
+      "type": "command",
+      "description": "fppd/log"
+    },
+    "api.fppd.get-mqtt-cache": {
+      "name": "get-mqtt-cache",
+      "path": "api fppd get-mqtt-cache",
+      "type": "command",
+      "description": "fppd/mqtt/cache"
+    },
+    "api.fppd.get-multisyncstats": {
+      "name": "get-multisyncstats",
+      "path": "api fppd get-multisyncstats",
+      "type": "command",
+      "description": "fppd/multiSyncStats"
+    },
+    "api.fppd.get-multisyncsystems": {
+      "name": "get-multisyncsystems",
+      "path": "api fppd get-multisyncsystems",
+      "type": "command",
+      "description": "fppd/multiSyncSystems"
+    },
+    "api.fppd.get-playlist-config": {
+      "name": "get-playlist-config",
+      "path": "api fppd get-playlist-config",
+      "type": "command",
+      "description": "fppd/playlist/config"
+    },
+    "api.fppd.get-playlist-filetime": {
+      "name": "get-playlist-filetime",
+      "path": "api fppd get-playlist-filetime",
+      "type": "command",
+      "description": "fppd/playlist/filetime"
+    },
+    "api.fppd.get-playlists": {
+      "name": "get-playlists",
+      "path": "api fppd get-playlists",
+      "type": "command",
+      "description": "fppd/playlists"
+    },
+    "api.fppd.get-ports": {
+      "name": "get-ports",
+      "path": "api fppd get-ports",
+      "type": "command",
+      "description": "fppd/ports"
+    },
+    "api.fppd.get-ports-list": {
+      "name": "get-ports-list",
+      "path": "api fppd get-ports-list",
+      "type": "command",
+      "description": "fppd/ports/list"
+    },
+    "api.fppd.get-ports-pixelcount": {
+      "name": "get-ports-pixelcount",
+      "path": "api fppd get-ports-pixelcount",
+      "type": "command",
+      "description": "fppd/ports/pixelCount"
+    },
+    "api.fppd.get-ports-stop": {
+      "name": "get-ports-stop",
+      "path": "api fppd get-ports-stop",
+      "type": "command",
+      "description": "fppd/ports/stop"
+    },
+    "api.fppd.get-schedule": {
+      "name": "get-schedule",
+      "path": "api fppd get-schedule",
+      "type": "command",
+      "description": "fppd/schedule"
+    },
+    "api.fppd.get-sequence": {
+      "name": "get-sequence",
+      "path": "api fppd get-sequence",
+      "type": "command",
+      "description": "fppd/sequence"
+    },
+    "api.fppd.get-status": {
+      "name": "get-status",
+      "path": "api fppd get-status",
+      "type": "command",
+      "description": "fppd/status"
+    },
+    "api.fppd.get-testing": {
+      "name": "get-testing",
+      "path": "api fppd get-testing",
+      "type": "command",
+      "description": "fppd/testing"
+    },
+    "api.fppd.get-testing-tests": {
+      "name": "get-testing-tests",
+      "path": "api fppd get-testing-tests",
+      "type": "command",
+      "description": "fppd/testing/tests"
+    },
+    "api.fppd.get-testing-tests-pattern": {
+      "name": "get-testing-tests-pattern",
+      "path": "api fppd get-testing-tests-pattern",
+      "type": "command",
+      "description": "fppd/testing/tests/{pattern}"
+    },
+    "api.fppd.get-version": {
+      "name": "get-version",
+      "path": "api fppd get-version",
+      "type": "command",
+      "description": "fppd/version"
+    },
+    "api.fppd.get-volume": {
+      "name": "get-volume",
+      "path": "api fppd get-volume",
+      "type": "command",
+      "description": "fppd/volume"
+    },
+    "api.fppd.get-warnings": {
+      "name": "get-warnings",
+      "path": "api fppd get-warnings",
+      "type": "command",
+      "description": "fppd/warnings"
+    },
+    "api.fppd.get-warnings-full": {
+      "name": "get-warnings-full",
+      "path": "api fppd get-warnings-full",
+      "type": "command",
+      "description": "fppd/warnings_full"
+    },
+    "api.fppd.post-effects-name": {
+      "name": "post-effects-name",
+      "path": "api fppd post-effects-name",
+      "type": "command",
+      "description": "fppd/effects/{name}"
+    },
+    "api.fppd.post-falcon-hardware": {
+      "name": "post-falcon-hardware",
+      "path": "api fppd post-falcon-hardware",
+      "type": "command",
+      "description": "fppd/falcon/hardware"
+    },
+    "api.fppd.post-gpio-ext": {
+      "name": "post-gpio-ext",
+      "path": "api fppd post-gpio-ext",
+      "type": "command",
+      "description": "fppd/gpio/ext"
+    },
+    "api.fppd.post-log-level-level": {
+      "name": "post-log-level-level",
+      "path": "api fppd post-log-level-level",
+      "type": "command",
+      "description": "fppd/log/level/{level}"
+    },
+    "api.fppd.post-outputs": {
+      "name": "post-outputs",
+      "path": "api fppd post-outputs",
+      "type": "command",
+      "description": "fppd/outputs"
+    },
+    "api.fppd.post-outputs-remap": {
+      "name": "post-outputs-remap",
+      "path": "api fppd post-outputs-remap",
+      "type": "command",
+      "description": "fppd/outputs/remap"
+    },
+    "api.fppd.post-playlists-name-item-item": {
+      "name": "post-playlists-name-item-item",
+      "path": "api fppd post-playlists-name-item-item",
+      "type": "command",
+      "description": "fppd/playlists/{name}/item/{item}"
+    },
+    "api.fppd.post-playlists-name-nextitem": {
+      "name": "post-playlists-name-nextitem",
+      "path": "api fppd post-playlists-name-nextitem",
+      "type": "command",
+      "description": "fppd/playlists/{name}/nextItem"
+    },
+    "api.fppd.post-playlists-name-previtem": {
+      "name": "post-playlists-name-previtem",
+      "path": "api fppd post-playlists-name-previtem",
+      "type": "command",
+      "description": "fppd/playlists/{name}/prevItem"
+    },
+    "api.fppd.post-playlists-name-restartitem": {
+      "name": "post-playlists-name-restartitem",
+      "path": "api fppd post-playlists-name-restartitem",
+      "type": "command",
+      "description": "fppd/playlists/{name}/restartItem"
+    },
+    "api.fppd.post-playlists-name-section-section": {
+      "name": "post-playlists-name-section-section",
+      "path": "api fppd post-playlists-name-section-section",
+      "type": "command",
+      "description": "fppd/playlists/{name}/section/{section}"
+    },
+    "api.fppd.post-playlists-name-start": {
+      "name": "post-playlists-name-start",
+      "path": "api fppd post-playlists-name-start",
+      "type": "command",
+      "description": "fppd/playlists/{name}/start"
+    },
+    "api.fppd.post-playlists-name-stop": {
+      "name": "post-playlists-name-stop",
+      "path": "api fppd post-playlists-name-stop",
+      "type": "command",
+      "description": "fppd/playlists/{name}/stop"
+    },
+    "api.fppd.post-playlists-stop": {
+      "name": "post-playlists-stop",
+      "path": "api fppd post-playlists-stop",
+      "type": "command",
+      "description": "fppd/playlists/stop"
+    },
+    "api.fppd.post-restart": {
+      "name": "post-restart",
+      "path": "api fppd post-restart",
+      "type": "command",
+      "description": "fppd/restart"
+    },
+    "api.fppd.post-schedule": {
+      "name": "post-schedule",
+      "path": "api fppd post-schedule",
+      "type": "command",
+      "description": "fppd/schedule"
+    },
+    "api.fppd.post-sequences-name-back": {
+      "name": "post-sequences-name-back",
+      "path": "api fppd post-sequences-name-back",
+      "type": "command",
+      "description": "fppd/sequences/{name}/back"
+    },
+    "api.fppd.post-sequences-name-pause": {
+      "name": "post-sequences-name-pause",
+      "path": "api fppd post-sequences-name-pause",
+      "type": "command",
+      "description": "fppd/sequences/{name}/pause"
+    },
+    "api.fppd.post-sequences-name-start": {
+      "name": "post-sequences-name-start",
+      "path": "api fppd post-sequences-name-start",
+      "type": "command",
+      "description": "fppd/sequences/{name}/start"
+    },
+    "api.fppd.post-sequences-name-step": {
+      "name": "post-sequences-name-step",
+      "path": "api fppd post-sequences-name-step",
+      "type": "command",
+      "description": "fppd/sequences/{name}/step"
+    },
+    "api.fppd.post-sequences-name-stop": {
+      "name": "post-sequences-name-stop",
+      "path": "api fppd post-sequences-name-stop",
+      "type": "command",
+      "description": "fppd/sequences/{name}/stop"
+    },
+    "api.fppd.post-settings-reload": {
+      "name": "post-settings-reload",
+      "path": "api fppd post-settings-reload",
+      "type": "command",
+      "description": "fppd/settings/reload"
+    },
+    "api.fppd.post-settings-reload-setting": {
+      "name": "post-settings-reload-setting",
+      "path": "api fppd post-settings-reload-setting",
+      "type": "command",
+      "description": "fppd/settings/reload/{setting}"
+    },
+    "api.fppd.post-shutdown": {
+      "name": "post-shutdown",
+      "path": "api fppd post-shutdown",
+      "type": "command",
+      "description": "fppd/shutdown"
+    },
+    "api.fppd.post-testing": {
+      "name": "post-testing",
+      "path": "api fppd post-testing",
+      "type": "command",
+      "description": "fppd/testing"
+    },
+    "api.fppd.post-volume-volume": {
+      "name": "post-volume-volume",
+      "path": "api fppd post-volume-volume",
+      "type": "command",
+      "description": "fppd/volume/{volume}"
+    },
+    "api.fppd.put-playlists-name-settings": {
+      "name": "put-playlists-name-settings",
+      "path": "api fppd put-playlists-name-settings",
+      "type": "command",
+      "description": "fppd/playlists/{name}/settings"
+    },
+    "api.git": {
+      "name": "git",
+      "path": "api git",
+      "type": "group",
+      "description": "OpenAPI tag: git.",
+      "subcommands": [
+        "get-branches",
+        "get-originlog",
+        "get-releases-os-all",
+        "get-releases-sizes",
+        "get-reset",
+        "get-status"
+      ]
+    },
+    "api.git.get-branches": {
+      "name": "get-branches",
+      "path": "api git get-branches",
+      "type": "command",
+      "description": "Get local branches"
+    },
+    "api.git.get-originlog": {
+      "name": "get-originlog",
+      "path": "api git get-originlog",
+      "type": "command",
+      "description": "Get origin commits"
+    },
+    "api.git.get-releases-os-all": {
+      "name": "get-releases-os-all",
+      "path": "api git get-releases-os-all",
+      "type": "command",
+      "description": "Get releases for OS"
+    },
+    "api.git.get-releases-sizes": {
+      "name": "get-releases-sizes",
+      "path": "api git get-releases-sizes",
+      "type": "command",
+      "description": "Get release asset sizes"
+    },
+    "api.git.get-reset": {
+      "name": "get-reset",
+      "path": "api git get-reset",
+      "type": "command",
+      "description": "git/reset"
+    },
+    "api.git.get-status": {
+      "name": "get-status",
+      "path": "api git get-status",
+      "type": "command",
+      "description": "Get local repo status"
+    },
+    "api.gpio": {
+      "name": "gpio",
+      "path": "api gpio",
+      "type": "group",
+      "description": "OpenAPI tag: gpio.",
+      "subcommands": [
+        "get-gpio",
+        "get-pin",
+        "post-pin"
+      ]
+    },
+    "api.gpio.get-gpio": {
+      "name": "get-gpio",
+      "path": "api gpio get-gpio",
+      "type": "command",
+      "description": "gpio"
+    },
+    "api.gpio.get-pin": {
+      "name": "get-pin",
+      "path": "api gpio get-pin",
+      "type": "command",
+      "description": "gpio/{pin}"
+    },
+    "api.gpio.post-pin": {
+      "name": "post-pin",
+      "path": "api gpio post-pin",
+      "type": "command",
+      "description": "gpio/{pin}"
+    },
+    "api.help": {
+      "name": "help",
+      "path": "api help",
+      "type": "group",
+      "description": "OpenAPI tag: help.",
+      "subcommands": [
+        "get-help"
+      ]
+    },
+    "api.help.get-help": {
+      "name": "get-help",
+      "path": "api help get-help",
+      "type": "command",
+      "description": "help"
+    },
+    "api.list": {
+      "name": "list",
+      "path": "api list",
+      "type": "command",
+      "description": "List wrapped API operations."
+    },
+    "api.media": {
+      "name": "media",
+      "path": "api media",
+      "type": "group",
+      "description": "OpenAPI tag: media.",
+      "subcommands": [
+        "get-media",
+        "get-medianame-duration",
+        "get-medianame-meta"
+      ]
+    },
+    "api.media.get-media": {
+      "name": "get-media",
+      "path": "api media get-media",
+      "type": "command",
+      "description": "List all media files"
+    },
+    "api.media.get-medianame-duration": {
+      "name": "get-medianame-duration",
+      "path": "api media get-medianame-duration",
+      "type": "command",
+      "description": "Get duration of media item"
+    },
+    "api.media.get-medianame-meta": {
+      "name": "get-medianame-meta",
+      "path": "api media get-medianame-meta",
+      "type": "command",
+      "description": "Get metadata for media item"
+    },
+    "api.models": {
+      "name": "models",
+      "path": "api models",
+      "type": "group",
+      "description": "OpenAPI tag: models.",
+      "subcommands": [
+        "get-model",
+        "get-models",
+        "post-models",
+        "post-raw"
+      ]
+    },
+    "api.models.get-model": {
+      "name": "get-model",
+      "path": "api models get-model",
+      "type": "command",
+      "description": "models/{model}"
+    },
+    "api.models.get-models": {
+      "name": "get-models",
+      "path": "api models get-models",
+      "type": "command",
+      "description": "models"
+    },
+    "api.models.post-models": {
+      "name": "post-models",
+      "path": "api models post-models",
+      "type": "command",
+      "description": "models"
+    },
+    "api.models.post-raw": {
+      "name": "post-raw",
+      "path": "api models post-raw",
+      "type": "command",
+      "description": "models/raw"
+    },
+    "api.network": {
+      "name": "network",
+      "path": "api network",
+      "type": "group",
+      "description": "OpenAPI tag: network.",
+      "subcommands": [
+        "delete-persistentnames",
+        "get-dns",
+        "get-gateway",
+        "get-interface",
+        "get-interface-add-interface",
+        "get-interface-interface",
+        "get-wifi-scan-interface",
+        "get-wifi-strength",
+        "post-dns",
+        "post-gateway",
+        "post-interface-interface",
+        "post-interface-interface-apply",
+        "post-persistentnames"
+      ]
+    },
+    "api.network.delete-persistentnames": {
+      "name": "delete-persistentnames",
+      "path": "api network delete-persistentnames",
+      "type": "command",
+      "description": "Delete interface persistent names"
+    },
+    "api.network.get-dns": {
+      "name": "get-dns",
+      "path": "api network get-dns",
+      "type": "command",
+      "description": "Get DNS configuration"
+    },
+    "api.network.get-gateway": {
+      "name": "get-gateway",
+      "path": "api network get-gateway",
+      "type": "command",
+      "description": "Get default gateway"
+    },
+    "api.network.get-interface": {
+      "name": "get-interface",
+      "path": "api network get-interface",
+      "type": "command",
+      "description": "Get network interface details"
+    },
+    "api.network.get-interface-add-interface": {
+      "name": "get-interface-add-interface",
+      "path": "api network get-interface-add-interface",
+      "type": "command",
+      "description": "Create DHCP interface"
+    },
+    "api.network.get-interface-interface": {
+      "name": "get-interface-interface",
+      "path": "api network get-interface-interface",
+      "type": "command",
+      "description": "Get network interface configuration"
+    },
+    "api.network.get-wifi-scan-interface": {
+      "name": "get-wifi-scan-interface",
+      "path": "api network get-wifi-scan-interface",
+      "type": "command",
+      "description": "Get discoverable wifi networks"
+    },
+    "api.network.get-wifi-strength": {
+      "name": "get-wifi-strength",
+      "path": "api network get-wifi-strength",
+      "type": "command",
+      "description": "Get all wifi signal strenths"
+    },
+    "api.network.post-dns": {
+      "name": "post-dns",
+      "path": "api network post-dns",
+      "type": "command",
+      "description": "Set DNS configuration"
+    },
+    "api.network.post-gateway": {
+      "name": "post-gateway",
+      "path": "api network post-gateway",
+      "type": "command",
+      "description": "Set default gateway"
+    },
+    "api.network.post-interface-interface": {
+      "name": "post-interface-interface",
+      "path": "api network post-interface-interface",
+      "type": "command",
+      "description": "Set network interface configuration"
+    },
+    "api.network.post-interface-interface-apply": {
+      "name": "post-interface-interface-apply",
+      "path": "api network post-interface-interface-apply",
+      "type": "command",
+      "description": "Set networking configuration"
+    },
+    "api.network.post-persistentnames": {
+      "name": "post-persistentnames",
+      "path": "api network post-persistentnames",
+      "type": "command",
+      "description": "Set interface persistent names"
+    },
+    "api.options": {
+      "name": "options",
+      "path": "api options",
+      "type": "group",
+      "description": "OpenAPI tag: options.",
+      "subcommands": [
+        "get-settingname"
+      ]
+    },
+    "api.options.get-settingname": {
+      "name": "get-settingname",
+      "path": "api options get-settingname",
+      "type": "command",
+      "description": "Get a setting's options"
+    },
+    "api.overlays": {
+      "name": "overlays",
+      "path": "api overlays",
+      "type": "group",
+      "description": "OpenAPI tag: overlays.",
+      "subcommands": [
+        "get-effects",
+        "get-effects-effect",
+        "get-fonts",
+        "get-model-model",
+        "get-model-model-clear",
+        "get-model-model-data",
+        "get-models",
+        "get-running",
+        "get-settings",
+        "put-model-model-fill",
+        "put-model-model-mmap",
+        "put-model-model-pixel",
+        "put-model-model-save",
+        "put-model-model-state",
+        "put-model-model-text",
+        "put-range-ranges"
+      ]
+    },
+    "api.overlays.get-effects": {
+      "name": "get-effects",
+      "path": "api overlays get-effects",
+      "type": "command",
+      "description": "overlays/effects"
+    },
+    "api.overlays.get-effects-effect": {
+      "name": "get-effects-effect",
+      "path": "api overlays get-effects-effect",
+      "type": "command",
+      "description": "overlays/effects/{effect}"
+    },
+    "api.overlays.get-fonts": {
+      "name": "get-fonts",
+      "path": "api overlays get-fonts",
+      "type": "command",
+      "description": "overlays/fonts"
+    },
+    "api.overlays.get-model-model": {
+      "name": "get-model-model",
+      "path": "api overlays get-model-model",
+      "type": "command",
+      "description": "overlays/model/{model}"
+    },
+    "api.overlays.get-model-model-clear": {
+      "name": "get-model-model-clear",
+      "path": "api overlays get-model-model-clear",
+      "type": "command",
+      "description": "overlays/model/{model}/clear"
+    },
+    "api.overlays.get-model-model-data": {
+      "name": "get-model-model-data",
+      "path": "api overlays get-model-model-data",
+      "type": "command",
+      "description": "overlays/model/{model}/data"
+    },
+    "api.overlays.get-models": {
+      "name": "get-models",
+      "path": "api overlays get-models",
+      "type": "command",
+      "description": "overlays/models"
+    },
+    "api.overlays.get-running": {
+      "name": "get-running",
+      "path": "api overlays get-running",
+      "type": "command",
+      "description": "overlays/running"
+    },
+    "api.overlays.get-settings": {
+      "name": "get-settings",
+      "path": "api overlays get-settings",
+      "type": "command",
+      "description": "overlays/settings"
+    },
+    "api.overlays.put-model-model-fill": {
+      "name": "put-model-model-fill",
+      "path": "api overlays put-model-model-fill",
+      "type": "command",
+      "description": "overlays/model/{model}/fill"
+    },
+    "api.overlays.put-model-model-mmap": {
+      "name": "put-model-model-mmap",
+      "path": "api overlays put-model-model-mmap",
+      "type": "command",
+      "description": "overlays/model/{model}/mmap"
+    },
+    "api.overlays.put-model-model-pixel": {
+      "name": "put-model-model-pixel",
+      "path": "api overlays put-model-model-pixel",
+      "type": "command",
+      "description": "overlays/model/{model}/pixel"
+    },
+    "api.overlays.put-model-model-save": {
+      "name": "put-model-model-save",
+      "path": "api overlays put-model-model-save",
+      "type": "command",
+      "description": "overlays/model/{model}/save"
+    },
+    "api.overlays.put-model-model-state": {
+      "name": "put-model-model-state",
+      "path": "api overlays put-model-model-state",
+      "type": "command",
+      "description": "overlays/model/{model}/state"
+    },
+    "api.overlays.put-model-model-text": {
+      "name": "put-model-model-text",
+      "path": "api overlays put-model-model-text",
+      "type": "command",
+      "description": "overlays/model/{model}/text"
+    },
+    "api.overlays.put-range-ranges": {
+      "name": "put-range-ranges",
+      "path": "api overlays put-range-ranges",
+      "type": "command",
+      "description": "overlays/range/{ranges}"
+    },
+    "api.pipewire": {
+      "name": "pipewire",
+      "path": "api pipewire",
+      "type": "group",
+      "description": "OpenAPI tag: pipewire.",
+      "subcommands": [
+        "get-control-groups",
+        "get-control-groups-id",
+        "get-control-input-groups",
+        "get-control-input-groups-id",
+        "get-control-routing",
+        "get-control-status",
+        "get-control-streams",
+        "post-control-groups-id-members-cardid-mute",
+        "post-control-groups-id-members-cardid-volume",
+        "post-control-groups-id-mute",
+        "post-control-groups-id-volume",
+        "post-control-input-groups-id-members-memberindex-mute",
+        "post-control-input-groups-id-members-memberindex-volume",
+        "post-control-routing-inputgroupid-outputgroupid-mute",
+        "post-control-routing-inputgroupid-outputgroupid-volume",
+        "post-control-streams-slot-volume"
+      ]
+    },
+    "api.pipewire.get-control-groups": {
+      "name": "get-control-groups",
+      "path": "api pipewire get-control-groups",
+      "type": "command",
+      "description": "List output groups with live state"
+    },
+    "api.pipewire.get-control-groups-id": {
+      "name": "get-control-groups-id",
+      "path": "api pipewire get-control-groups-id",
+      "type": "command",
+      "description": "Get one output group with live state"
+    },
+    "api.pipewire.get-control-input-groups": {
+      "name": "get-control-input-groups",
+      "path": "api pipewire get-control-input-groups",
+      "type": "command",
+      "description": "List input groups (mix buses)"
+    },
+    "api.pipewire.get-control-input-groups-id": {
+      "name": "get-control-input-groups-id",
+      "path": "api pipewire get-control-input-groups-id",
+      "type": "command",
+      "description": "Get one input group (mix bus)"
+    },
+    "api.pipewire.get-control-routing": {
+      "name": "get-control-routing",
+      "path": "api pipewire get-control-routing",
+      "type": "command",
+      "description": "Get the routing matrix"
+    },
+    "api.pipewire.get-control-status": {
+      "name": "get-control-status",
+      "path": "api pipewire get-control-status",
+      "type": "command",
+      "description": "PipeWire control status"
+    },
+    "api.pipewire.get-control-streams": {
+      "name": "get-control-streams",
+      "path": "api pipewire get-control-streams",
+      "type": "command",
+      "description": "List fppd stream slots"
+    },
+    "api.pipewire.post-control-groups-id-members-cardid-mute": {
+      "name": "post-control-groups-id-members-cardid-mute",
+      "path": "api pipewire post-control-groups-id-members-cardid-mute",
+      "type": "command",
+      "description": "Mute or unmute a member sound card"
+    },
+    "api.pipewire.post-control-groups-id-members-cardid-volume": {
+      "name": "post-control-groups-id-members-cardid-volume",
+      "path": "api pipewire post-control-groups-id-members-cardid-volume",
+      "type": "command",
+      "description": "Set member sound-card volume"
+    },
+    "api.pipewire.post-control-groups-id-mute": {
+      "name": "post-control-groups-id-mute",
+      "path": "api pipewire post-control-groups-id-mute",
+      "type": "command",
+      "description": "Mute or unmute an output group"
+    },
+    "api.pipewire.post-control-groups-id-volume": {
+      "name": "post-control-groups-id-volume",
+      "path": "api pipewire post-control-groups-id-volume",
+      "type": "command",
+      "description": "Set output group volume"
+    },
+    "api.pipewire.post-control-input-groups-id-members-memberindex-mute": {
+      "name": "post-control-input-groups-id-members-memberindex-mute",
+      "path": "api pipewire post-control-input-groups-id-members-memberindex-mute",
+      "type": "command",
+      "description": "Mute or unmute an input-group member"
+    },
+    "api.pipewire.post-control-input-groups-id-members-memberindex-volume": {
+      "name": "post-control-input-groups-id-members-memberindex-volume",
+      "path": "api pipewire post-control-input-groups-id-members-memberindex-volume",
+      "type": "command",
+      "description": "Set input-group member volume"
+    },
+    "api.pipewire.post-control-routing-inputgroupid-outputgroupid-mute": {
+      "name": "post-control-routing-inputgroupid-outputgroupid-mute",
+      "path": "api pipewire post-control-routing-inputgroupid-outputgroupid-mute",
+      "type": "command",
+      "description": "Mute or unmute a routing path"
+    },
+    "api.pipewire.post-control-routing-inputgroupid-outputgroupid-volume": {
+      "name": "post-control-routing-inputgroupid-outputgroupid-volume",
+      "path": "api pipewire post-control-routing-inputgroupid-outputgroupid-volume",
+      "type": "command",
+      "description": "Set routing-path volume"
+    },
+    "api.pipewire.post-control-streams-slot-volume": {
+      "name": "post-control-streams-slot-volume",
+      "path": "api pipewire post-control-streams-slot-volume",
+      "type": "command",
+      "description": "Set fppd stream slot volume"
+    },
+    "api.player": {
+      "name": "player",
+      "path": "api player",
+      "type": "group",
+      "description": "OpenAPI tag: player.",
+      "subcommands": [
+        "get-current",
+        "get-player",
+        "get-status"
+      ]
+    },
+    "api.player.get-current": {
+      "name": "get-current",
+      "path": "api player get-current",
+      "type": "command",
+      "description": "player/current"
+    },
+    "api.player.get-player": {
+      "name": "get-player",
+      "path": "api player get-player",
+      "type": "command",
+      "description": "player"
+    },
+    "api.player.get-status": {
+      "name": "get-status",
+      "path": "api player get-status",
+      "type": "command",
+      "description": "player/status"
+    },
+    "api.playlist": {
+      "name": "playlist",
+      "path": "api playlist",
+      "type": "group",
+      "description": "OpenAPI tag: playlist.",
+      "subcommands": [
+        "delete-playlistname",
+        "get-playlistname",
+        "get-playlistname-start",
+        "get-playlistname-start-repeat",
+        "get-playlistname-start-repeat-scheduleprotected",
+        "post-playlistname",
+        "post-playlistname-sectionname-item"
+      ]
+    },
+    "api.playlist.delete-playlistname": {
+      "name": "delete-playlistname",
+      "path": "api playlist delete-playlistname",
+      "type": "command",
+      "description": "Delete playlist"
+    },
+    "api.playlist.get-playlistname": {
+      "name": "get-playlistname",
+      "path": "api playlist get-playlistname",
+      "type": "command",
+      "description": "Get a playlist"
+    },
+    "api.playlist.get-playlistname-start": {
+      "name": "get-playlistname-start",
+      "path": "api playlist get-playlistname-start",
+      "type": "command",
+      "description": "Start playlist"
+    },
+    "api.playlist.get-playlistname-start-repeat": {
+      "name": "get-playlistname-start-repeat",
+      "path": "api playlist get-playlistname-start-repeat",
+      "type": "command",
+      "description": "Start playlist on repeat"
+    },
+    "api.playlist.get-playlistname-start-repeat-scheduleprotected": {
+      "name": "get-playlistname-start-repeat-scheduleprotected",
+      "path": "api playlist get-playlistname-start-repeat-scheduleprotected",
+      "type": "command",
+      "description": "Start playlist on repeat (alt)"
+    },
+    "api.playlist.post-playlistname": {
+      "name": "post-playlistname",
+      "path": "api playlist post-playlistname",
+      "type": "command",
+      "description": "Upsert playlist"
+    },
+    "api.playlist.post-playlistname-sectionname-item": {
+      "name": "post-playlistname-sectionname-item",
+      "path": "api playlist post-playlistname-sectionname-item",
+      "type": "command",
+      "description": "Insert section into playlist"
+    },
+    "api.playlists": {
+      "name": "playlists",
+      "path": "api playlists",
+      "type": "group",
+      "description": "OpenAPI tag: playlists.",
+      "subcommands": [
+        "get-pause",
+        "get-playable",
+        "get-playlists",
+        "get-resume",
+        "get-stop",
+        "get-stopgracefully",
+        "get-stopgracefullyafterloop",
+        "get-validate",
+        "post-playlists"
+      ]
+    },
+    "api.playlists.get-pause": {
+      "name": "get-pause",
+      "path": "api playlists get-pause",
+      "type": "command",
+      "description": "Pause currently running playlist"
+    },
+    "api.playlists.get-playable": {
+      "name": "get-playable",
+      "path": "api playlists get-playable",
+      "type": "command",
+      "description": "Get playable objects"
+    },
+    "api.playlists.get-playlists": {
+      "name": "get-playlists",
+      "path": "api playlists get-playlists",
+      "type": "command",
+      "description": "Get all playlists"
+    },
+    "api.playlists.get-resume": {
+      "name": "get-resume",
+      "path": "api playlists get-resume",
+      "type": "command",
+      "description": "Resume paused playlist"
+    },
+    "api.playlists.get-stop": {
+      "name": "get-stop",
+      "path": "api playlists get-stop",
+      "type": "command",
+      "description": "Stop playlist"
+    },
+    "api.playlists.get-stopgracefully": {
+      "name": "get-stopgracefully",
+      "path": "api playlists get-stopgracefully",
+      "type": "command",
+      "description": "Gracefully stop playlist"
+    },
+    "api.playlists.get-stopgracefullyafterloop": {
+      "name": "get-stopgracefullyafterloop",
+      "path": "api playlists get-stopgracefullyafterloop",
+      "type": "command",
+      "description": "Gracefully stop at end of loop"
+    },
+    "api.playlists.get-validate": {
+      "name": "get-validate",
+      "path": "api playlists get-validate",
+      "type": "command",
+      "description": "Validate all playlists"
+    },
+    "api.playlists.post-playlists": {
+      "name": "post-playlists",
+      "path": "api playlists post-playlists",
+      "type": "command",
+      "description": "Create playlist"
+    },
+    "api.plugin": {
+      "name": "plugin",
+      "path": "api plugin",
+      "type": "group",
+      "description": "OpenAPI tag: plugin.",
+      "subcommands": [
+        "delete-reponame",
+        "get-headerindicators",
+        "get-plugin",
+        "get-reponame",
+        "get-reponame-settings-settingname",
+        "get-reponame-upgrade",
+        "post-fetchinfo",
+        "post-plugin",
+        "post-reponame-settings-settingname",
+        "post-reponame-updates"
+      ]
+    },
+    "api.plugin.delete-reponame": {
+      "name": "delete-reponame",
+      "path": "api plugin delete-reponame",
+      "type": "command",
+      "description": "Uninstall plugin"
+    },
+    "api.plugin.get-headerindicators": {
+      "name": "get-headerindicators",
+      "path": "api plugin get-headerindicators",
+      "type": "command",
+      "description": "Get header indicators"
+    },
+    "api.plugin.get-plugin": {
+      "name": "get-plugin",
+      "path": "api plugin get-plugin",
+      "type": "command",
+      "description": "Get all plugins"
+    },
+    "api.plugin.get-reponame": {
+      "name": "get-reponame",
+      "path": "api plugin get-reponame",
+      "type": "command",
+      "description": "Get plugin information"
+    },
+    "api.plugin.get-reponame-settings-settingname": {
+      "name": "get-reponame-settings-settingname",
+      "path": "api plugin get-reponame-settings-settingname",
+      "type": "command",
+      "description": "Get setting from plugin"
+    },
+    "api.plugin.get-reponame-upgrade": {
+      "name": "get-reponame-upgrade",
+      "path": "api plugin get-reponame-upgrade",
+      "type": "command",
+      "description": "Update plugin"
+    },
+    "api.plugin.post-fetchinfo": {
+      "name": "post-fetchinfo",
+      "path": "api plugin post-fetchinfo",
+      "type": "command",
+      "description": "Get plugin info from URL"
+    },
+    "api.plugin.post-plugin": {
+      "name": "post-plugin",
+      "path": "api plugin post-plugin",
+      "type": "command",
+      "description": "Install plugin"
+    },
+    "api.plugin.post-reponame-settings-settingname": {
+      "name": "post-reponame-settings-settingname",
+      "path": "api plugin post-reponame-settings-settingname",
+      "type": "command",
+      "description": "Set setting for plugin"
+    },
+    "api.plugin.post-reponame-updates": {
+      "name": "post-reponame-updates",
+      "path": "api plugin post-reponame-updates",
+      "type": "command",
+      "description": "Check plugin for updates"
+    },
+    "api.proxies": {
+      "name": "proxies",
+      "path": "api proxies",
+      "type": "group",
+      "description": "OpenAPI tag: proxies.",
+      "subcommands": [
+        "delete-proxies",
+        "delete-proxyip",
+        "get-proxies",
+        "post-proxies",
+        "post-proxyip"
+      ]
+    },
+    "api.proxies.delete-proxies": {
+      "name": "delete-proxies",
+      "path": "api proxies delete-proxies",
+      "type": "command",
+      "description": "Delete all proxies"
+    },
+    "api.proxies.delete-proxyip": {
+      "name": "delete-proxyip",
+      "path": "api proxies delete-proxyip",
+      "type": "command",
+      "description": "Remove proxy"
+    },
+    "api.proxies.get-proxies": {
+      "name": "get-proxies",
+      "path": "api proxies get-proxies",
+      "type": "command",
+      "description": "Get list of proxy IPs"
+    },
+    "api.proxies.post-proxies": {
+      "name": "post-proxies",
+      "path": "api proxies post-proxies",
+      "type": "command",
+      "description": "Set proxy list"
+    },
+    "api.proxies.post-proxyip": {
+      "name": "post-proxyip",
+      "path": "api proxies post-proxyip",
+      "type": "command",
+      "description": "Add proxy"
+    },
+    "api.proxy": {
+      "name": "proxy",
+      "path": "api proxy",
+      "type": "group",
+      "description": "OpenAPI tag: proxy.",
+      "subcommands": [
+        "get-ip-urlpart"
+      ]
+    },
+    "api.proxy.get-ip-urlpart": {
+      "name": "get-ip-urlpart",
+      "path": "api proxy get-ip-urlpart",
+      "type": "command",
+      "description": "Get URL from remote FPP"
+    },
+    "api.remoteAction": {
+      "name": "remoteAction",
+      "path": "api remoteAction",
+      "type": "group",
+      "description": "OpenAPI tag: remoteAction.",
+      "subcommands": [
+        "get-remoteaction"
+      ]
+    },
+    "api.remoteAction.get-remoteaction": {
+      "name": "get-remoteaction",
+      "path": "api remoteAction get-remoteaction",
+      "type": "command",
+      "description": "Proxy a command to remote FPP"
+    },
+    "api.remotes": {
+      "name": "remotes",
+      "path": "api remotes",
+      "type": "group",
+      "description": "OpenAPI tag: remotes.",
+      "subcommands": [
+        "get-remotes"
+      ]
+    },
+    "api.remotes.get-remotes": {
+      "name": "get-remotes",
+      "path": "api remotes get-remotes",
+      "type": "command",
+      "description": "Get all remote FPPs"
+    },
+    "api.schedule": {
+      "name": "schedule",
+      "path": "api schedule",
+      "type": "group",
+      "description": "OpenAPI tag: schedule.",
+      "subcommands": [
+        "get-schedule",
+        "post-reload",
+        "post-schedule"
+      ]
+    },
+    "api.schedule.get-schedule": {
+      "name": "get-schedule",
+      "path": "api schedule get-schedule",
+      "type": "command",
+      "description": "Get schedules"
+    },
+    "api.schedule.post-reload": {
+      "name": "post-reload",
+      "path": "api schedule post-reload",
+      "type": "command",
+      "description": "Reload schedules"
+    },
+    "api.schedule.post-schedule": {
+      "name": "post-schedule",
+      "path": "api schedule post-schedule",
+      "type": "command",
+      "description": "Set schedule"
+    },
+    "api.scripts": {
+      "name": "scripts",
+      "path": "api scripts",
+      "type": "group",
+      "description": "OpenAPI tag: scripts.",
+      "subcommands": [
+        "get-installremote-category-filename",
+        "get-scriptname",
+        "get-scriptname-run",
+        "get-scripts",
+        "get-viewremote-category-filename",
+        "post-scriptname"
+      ]
+    },
+    "api.scripts.get-installremote-category-filename": {
+      "name": "get-installremote-category-filename",
+      "path": "api scripts get-installremote-category-filename",
+      "type": "command",
+      "description": "Install remote script"
+    },
+    "api.scripts.get-scriptname": {
+      "name": "get-scriptname",
+      "path": "api scripts get-scriptname",
+      "type": "command",
+      "description": "Get a script"
+    },
+    "api.scripts.get-scriptname-run": {
+      "name": "get-scriptname-run",
+      "path": "api scripts get-scriptname-run",
+      "type": "command",
+      "description": "Run script"
+    },
+    "api.scripts.get-scripts": {
+      "name": "get-scripts",
+      "path": "api scripts get-scripts",
+      "type": "command",
+      "description": "Get all scripts"
+    },
+    "api.scripts.get-viewremote-category-filename": {
+      "name": "get-viewremote-category-filename",
+      "path": "api scripts get-viewremote-category-filename",
+      "type": "command",
+      "description": "Get remote script"
+    },
+    "api.scripts.post-scriptname": {
+      "name": "post-scriptname",
+      "path": "api scripts post-scriptname",
+      "type": "command",
+      "description": "Update script"
+    },
+    "api.sequence": {
+      "name": "sequence",
+      "path": "api sequence",
+      "type": "group",
+      "description": "OpenAPI tag: sequence.",
+      "subcommands": [
+        "delete-sequencename",
+        "get-current-step",
+        "get-current-stop",
+        "get-current-togglepause",
+        "get-sequence",
+        "get-sequencename",
+        "get-sequencename-meta",
+        "get-sequencename-start-startsecond",
+        "post-sequencename"
+      ]
+    },
+    "api.sequence.delete-sequencename": {
+      "name": "delete-sequencename",
+      "path": "api sequence delete-sequencename",
+      "type": "command",
+      "description": "Delete sequence file"
+    },
+    "api.sequence.get-current-step": {
+      "name": "get-current-step",
+      "path": "api sequence get-current-step",
+      "type": "command",
+      "description": "Step a paused sequence"
+    },
+    "api.sequence.get-current-stop": {
+      "name": "get-current-stop",
+      "path": "api sequence get-current-stop",
+      "type": "command",
+      "description": "Stop sequence"
+    },
+    "api.sequence.get-current-togglepause": {
+      "name": "get-current-togglepause",
+      "path": "api sequence get-current-togglepause",
+      "type": "command",
+      "description": "Toggle play/pause on sequence"
+    },
+    "api.sequence.get-sequence": {
+      "name": "get-sequence",
+      "path": "api sequence get-sequence",
+      "type": "command",
+      "description": "Get all sequences"
+    },
+    "api.sequence.get-sequencename": {
+      "name": "get-sequencename",
+      "path": "api sequence get-sequencename",
+      "type": "command",
+      "description": "Download sequence"
+    },
+    "api.sequence.get-sequencename-meta": {
+      "name": "get-sequencename-meta",
+      "path": "api sequence get-sequencename-meta",
+      "type": "command",
+      "description": "Get sequence metadata"
+    },
+    "api.sequence.get-sequencename-start-startsecond": {
+      "name": "get-sequencename-start-startsecond",
+      "path": "api sequence get-sequencename-start-startsecond",
+      "type": "command",
+      "description": "Start sequence at time"
+    },
+    "api.sequence.post-sequencename": {
+      "name": "post-sequencename",
+      "path": "api sequence post-sequencename",
+      "type": "command",
+      "description": "Uploads sequence file"
+    },
+    "api.settings": {
+      "name": "settings",
+      "path": "api settings",
+      "type": "group",
+      "description": "OpenAPI tag: settings.",
+      "subcommands": [
+        "get-settingname",
+        "get-settings",
+        "put-settingname",
+        "put-settingname-jsonvalueupdate"
+      ]
+    },
+    "api.settings.get-settingname": {
+      "name": "get-settingname",
+      "path": "api settings get-settingname",
+      "type": "command",
+      "description": "Get value of setting"
+    },
+    "api.settings.get-settings": {
+      "name": "get-settings",
+      "path": "api settings get-settings",
+      "type": "command",
+      "description": "Get all settings.json"
+    },
+    "api.settings.put-settingname": {
+      "name": "put-settingname",
+      "path": "api settings put-settingname",
+      "type": "command",
+      "description": "Set value for setting"
+    },
+    "api.settings.put-settingname-jsonvalueupdate": {
+      "name": "put-settingname-jsonvalueupdate",
+      "path": "api settings put-settingname-jsonvalueupdate",
+      "type": "command",
+      "description": "Set sub-value"
+    },
+    "api.statistics": {
+      "name": "statistics",
+      "path": "api statistics",
+      "type": "group",
+      "description": "OpenAPI tag: statistics.",
+      "subcommands": [
+        "delete-usage",
+        "get-usage",
+        "post-usage"
+      ]
+    },
+    "api.statistics.delete-usage": {
+      "name": "delete-usage",
+      "path": "api statistics delete-usage",
+      "type": "command",
+      "description": "Resets statistics cache"
+    },
+    "api.statistics.get-usage": {
+      "name": "get-usage",
+      "path": "api statistics get-usage",
+      "type": "command",
+      "description": "Get statistics"
+    },
+    "api.statistics.post-usage": {
+      "name": "post-usage",
+      "path": "api statistics post-usage",
+      "type": "command",
+      "description": "Publsh statistics"
+    },
+    "api.system": {
+      "name": "system",
+      "path": "api system",
+      "type": "group",
+      "description": "OpenAPI tag: system.",
+      "subcommands": [
+        "get-fppd-restart",
+        "get-fppd-start",
+        "get-fppd-stop",
+        "get-info",
+        "get-packages",
+        "get-packages-info-packagename",
+        "get-reboot",
+        "get-releasenotes-version",
+        "get-shutdown",
+        "get-status",
+        "get-updatestatus",
+        "get-volume",
+        "post-fppd-skipbootdelay",
+        "post-volume"
+      ]
+    },
+    "api.system.get-fppd-restart": {
+      "name": "get-fppd-restart",
+      "path": "api system get-fppd-restart",
+      "type": "command",
+      "description": "Restart fppd process"
+    },
+    "api.system.get-fppd-start": {
+      "name": "get-fppd-start",
+      "path": "api system get-fppd-start",
+      "type": "command",
+      "description": "Start fppd"
+    },
+    "api.system.get-fppd-stop": {
+      "name": "get-fppd-stop",
+      "path": "api system get-fppd-stop",
+      "type": "command",
+      "description": "Stop fppd"
+    },
+    "api.system.get-info": {
+      "name": "get-info",
+      "path": "api system get-info",
+      "type": "command",
+      "description": "Get system info"
+    },
+    "api.system.get-packages": {
+      "name": "get-packages",
+      "path": "api system get-packages",
+      "type": "command",
+      "description": "Get all system packages"
+    },
+    "api.system.get-packages-info-packagename": {
+      "name": "get-packages-info-packagename",
+      "path": "api system get-packages-info-packagename",
+      "type": "command",
+      "description": "Get system package information"
+    },
+    "api.system.get-reboot": {
+      "name": "get-reboot",
+      "path": "api system get-reboot",
+      "type": "command",
+      "description": "Reboot the operating system"
+    },
+    "api.system.get-releasenotes-version": {
+      "name": "get-releasenotes-version",
+      "path": "api system get-releasenotes-version",
+      "type": "command",
+      "description": "Get release notes"
+    },
+    "api.system.get-shutdown": {
+      "name": "get-shutdown",
+      "path": "api system get-shutdown",
+      "type": "command",
+      "description": "Shutdown the operating system"
+    },
+    "api.system.get-status": {
+      "name": "get-status",
+      "path": "api system get-status",
+      "type": "command",
+      "description": "Get system status"
+    },
+    "api.system.get-updatestatus": {
+      "name": "get-updatestatus",
+      "path": "api system get-updatestatus",
+      "type": "command",
+      "description": "Get fpp upgrade status"
+    },
+    "api.system.get-volume": {
+      "name": "get-volume",
+      "path": "api system get-volume",
+      "type": "command",
+      "description": "Get volume"
+    },
+    "api.system.post-fppd-skipbootdelay": {
+      "name": "post-fppd-skipbootdelay",
+      "path": "api system post-fppd-skipbootdelay",
+      "type": "command",
+      "description": "Skip boot delay"
+    },
+    "api.system.post-volume": {
+      "name": "post-volume",
+      "path": "api system post-volume",
+      "type": "command",
+      "description": "Set volume"
+    },
+    "api.testmode": {
+      "name": "testmode",
+      "path": "api testmode",
+      "type": "group",
+      "description": "OpenAPI tag: testmode.",
+      "subcommands": [
+        "get-testmode",
+        "post-testmode"
+      ]
+    },
+    "api.testmode.get-testmode": {
+      "name": "get-testmode",
+      "path": "api testmode get-testmode",
+      "type": "command",
+      "description": "Get Test Mode state"
+    },
+    "api.testmode.post-testmode": {
+      "name": "post-testmode",
+      "path": "api testmode post-testmode",
+      "type": "command",
+      "description": "Set Test Mode configuration"
+    },
+    "api.time": {
+      "name": "time",
+      "path": "api time",
+      "type": "group",
+      "description": "OpenAPI tag: time.",
+      "subcommands": [
+        "get-time"
+      ]
+    },
+    "api.time.get-time": {
+      "name": "get-time",
+      "path": "api time get-time",
+      "type": "command",
+      "description": "Get current time"
+    },
+    "command": {
+      "name": "command",
+      "path": "command",
+      "type": "group",
+      "description": "Run FPP commands (maps to /api/command).",
+      "subcommands": [
+        "help",
+        "list",
+        "preset",
+        "presets",
+        "run"
+      ]
+    },
+    "command.help": {
+      "name": "help",
+      "path": "command help",
+      "type": "command",
+      "description": "Help for a specific FPP command."
+    },
+    "command.list": {
+      "name": "list",
+      "path": "command list",
+      "type": "command",
+      "description": "List available FPP commands."
+    },
+    "command.preset": {
+      "name": "preset",
+      "path": "command preset",
+      "type": "command",
+      "description": "Trigger a command preset by name or slot number."
+    },
+    "command.presets": {
+      "name": "presets",
+      "path": "command presets",
+      "type": "command",
+      "description": "List command presets."
+    },
+    "command.run": {
+      "name": "run",
+      "path": "command run",
+      "type": "command",
+      "description": "Run an FPP command by name with optional arguments."
+    },
+    "config": {
+      "name": "config",
+      "path": "config",
+      "type": "group",
+      "description": "Local CLI configuration (~/.cli-fpp/config.json).",
+      "subcommands": [
+        "set",
+        "show"
+      ]
+    },
+    "config.set": {
+      "name": "set",
+      "path": "config set",
+      "type": "command",
+      "description": "Set a config value on the active/default target (or global contrib_enabled)."
+    },
+    "config.show": {
+      "name": "show",
+      "path": "config show",
+      "type": "command",
+      "description": "Show saved configuration and active connection."
+    },
+    "dev": {
+      "name": "dev",
+      "path": "dev",
+      "type": "group",
+      "description": "Triển khai Orange Pi / FPP — SSH, display, Docker, build (không dùng cho đổi nội dung hàng ngày).",
+      "subcommands": [
+        "doctor",
+        "fpp",
+        "host",
+        "target"
+      ]
+    },
+    "dev.doctor": {
+      "name": "doctor",
+      "path": "dev doctor",
+      "type": "command",
+      "description": "Kiểm tra config, SSH, Docker, FPP API — gợi ý bước tiếp theo."
+    },
+    "dev.fpp": {
+      "name": "fpp",
+      "path": "dev fpp",
+      "type": "group",
+      "description": "Cài đặt, build, deploy FPP Docker trên Orange Pi (SSH).",
+      "subcommands": [
+        "bootstrap",
+        "build",
+        "deploy",
+        "down",
+        "install",
+        "pull",
+        "status",
+        "up",
+        "virtual-matrix"
+      ]
+    },
+    "dev.fpp.bootstrap": {
+      "name": "bootstrap",
+      "path": "dev fpp bootstrap",
+      "type": "command",
+      "description": "Greenfield: upload FPP source → install Docker → build → khởi động trên target."
+    },
+    "dev.fpp.build": {
+      "name": "build",
+      "path": "dev fpp build",
+      "type": "command",
+      "description": "Chạy make trong container (plugin FBMatrix hoặc all)."
+    },
+    "dev.fpp.deploy": {
+      "name": "deploy",
+      "path": "dev fpp deploy",
+      "type": "command",
+      "description": "Upload file từ FPP source local → container (+ build + restart)."
+    },
+    "dev.fpp.down": {
+      "name": "down",
+      "path": "dev fpp down",
+      "type": "command",
+      "description": "docker-compose down — dừng FPP trên target."
+    },
+    "dev.fpp.install": {
+      "name": "install",
+      "path": "dev fpp install",
+      "type": "command",
+      "description": "Tạo compose + media, pull image, docker-compose up -d."
+    },
+    "dev.fpp.pull": {
+      "name": "pull",
+      "path": "dev fpp pull",
+      "type": "command",
+      "description": "docker-compose pull."
+    },
+    "dev.fpp.status": {
+      "name": "status",
+      "path": "dev fpp status",
+      "type": "command",
+      "description": "Trạng thái compose, image, container, VirtualMatrix."
+    },
+    "dev.fpp.up": {
+      "name": "up",
+      "path": "dev fpp up",
+      "type": "command",
+      "description": "docker-compose up -d."
+    },
+    "dev.fpp.virtual-matrix": {
+      "name": "virtual-matrix",
+      "path": "dev fpp virtual-matrix",
+      "type": "group",
+      "description": "VirtualMatrix trong co-other.json (fb0 flip / rotate).",
+      "subcommands": [
+        "set",
+        "status"
+      ]
+    },
+    "dev.fpp.virtual-matrix.set": {
+      "name": "set",
+      "path": "dev fpp virtual-matrix set",
+      "type": "command",
+      "description": "Cập nhật co-other.json + sync vào container."
+    },
+    "dev.fpp.virtual-matrix.status": {
+      "name": "status",
+      "path": "dev fpp virtual-matrix status",
+      "type": "command",
+      "description": "Đọc invert, flipHorizontal, rotate, width, height."
+    },
+    "dev.host": {
+      "name": "host",
+      "path": "dev host",
+      "type": "group",
+      "description": "SSH tới máy chạy FPP (Orange Pi) — màn hình, rotation, autostart.",
+      "subcommands": [
+        "display",
+        "fpp"
+      ]
+    },
+    "dev.host.display": {
+      "name": "display",
+      "path": "dev host display",
+      "type": "group",
+      "description": "Framebuffer / HDMI on the host (not FPP API).",
+      "subcommands": [
+        "persist",
+        "rotate",
+        "status"
+      ]
+    },
+    "dev.host.display.persist": {
+      "name": "persist",
+      "path": "dev host display persist",
+      "type": "group",
+      "description": "Giữ rotation sau reboot (systemd trên Orange Pi).",
+      "subcommands": [
+        "install",
+        "remove",
+        "status"
+      ]
+    },
+    "dev.host.display.persist.install": {
+      "name": "install",
+      "path": "dev host display persist install",
+      "type": "command",
+      "description": "Cài systemd + script, bật portrait cố định sau reboot."
+    },
+    "dev.host.display.persist.remove": {
+      "name": "remove",
+      "path": "dev host display persist remove",
+      "type": "command",
+      "description": "Gỡ systemd persist và về landscape."
+    },
+    "dev.host.display.persist.status": {
+      "name": "status",
+      "path": "dev host display persist status",
+      "type": "command",
+      "description": "Trạng thái service fpp-fb-rotate."
+    },
+    "dev.host.display.rotate": {
+      "name": "rotate",
+      "path": "dev host display rotate",
+      "type": "command",
+      "description": "Rotate physical display via /sys/class/graphics/fb0/rotate (requires sudo on host)."
+    },
+    "dev.host.display.status": {
+      "name": "status",
+      "path": "dev host display status",
+      "type": "command",
+      "description": "EDID, orientation, fb0 geometry (SSH)."
+    },
+    "dev.host.fpp": {
+      "name": "fpp",
+      "path": "dev host fpp",
+      "type": "group",
+      "description": "FPP trên Orange Pi host (docker-compose, autostart).",
+      "subcommands": [
+        "autostart"
+      ]
+    },
+    "dev.host.fpp.autostart": {
+      "name": "autostart",
+      "path": "dev host fpp autostart",
+      "type": "group",
+      "description": "Tự khởi động FPP docker khi Orange Pi boot.",
+      "subcommands": [
+        "install",
+        "remove",
+        "status"
+      ]
+    },
+    "dev.host.fpp.autostart.install": {
+      "name": "install",
+      "path": "dev host fpp autostart install",
+      "type": "command",
+      "description": "Bật docker.service + systemd fpp-docker (docker-compose up -d khi boot)."
+    },
+    "dev.host.fpp.autostart.remove": {
+      "name": "remove",
+      "path": "dev host fpp autostart remove",
+      "type": "command",
+      "description": "Gỡ systemd fpp-docker (container restart:always vẫn giữ trong compose)."
+    },
+    "dev.host.fpp.autostart.status": {
+      "name": "status",
+      "path": "dev host fpp autostart status",
+      "type": "command",
+      "description": "Trạng thái docker.service + fpp-docker.service + container."
+    },
+    "dev.target": {
+      "name": "target",
+      "path": "dev target",
+      "type": "group",
+      "description": "Profile thiết bị target (FPP URL + SSH).",
+      "subcommands": [
+        "init",
+        "show"
+      ]
+    },
+    "dev.target.init": {
+      "name": "init",
+      "path": "dev target init",
+      "type": "command",
+      "description": "Lưu target profile (alias của target add)."
+    },
+    "dev.target.show": {
+      "name": "show",
+      "path": "dev target show",
+      "type": "command",
+      "description": "Xem target đang cấu hình (~/.cli-fpp/config.json)."
+    },
+    "doctor": {
+      "name": "doctor",
+      "path": "doctor",
+      "type": "command",
+      "description": "Kiểm tra controller: Python, git, gh, config, contribute queue (+ tuỳ chọn target)."
+    },
+    "effects": {
+      "name": "effects",
+      "path": "effects",
+      "type": "group",
+      "description": "Effects (effects.php).",
+      "subcommands": [
+        "list",
+        "running",
+        "start",
+        "stop"
+      ]
+    },
+    "effects.list": {
+      "name": "list",
+      "path": "effects list",
+      "type": "command",
+      "description": "List available effects."
+    },
+    "effects.running": {
+      "name": "running",
+      "path": "effects running",
+      "type": "command",
+      "description": "List running effects."
+    },
+    "effects.start": {
+      "name": "start",
+      "path": "effects start",
+      "type": "command",
+      "description": "Start an effect."
+    },
+    "effects.stop": {
+      "name": "stop",
+      "path": "effects stop",
+      "type": "command",
+      "description": "Stop running effect(s)."
+    },
+    "experience": {
+      "name": "experience",
+      "path": "experience",
+      "type": "group",
+      "description": "Kinh nghiệm theo Target (device) và Player (FPP version).",
+      "subcommands": [
+        "add",
+        "catalog",
+        "contribute",
+        "list",
+        "remember",
+        "remove",
+        "show"
+      ]
+    },
+    "experience.add": {
+      "name": "add",
+      "path": "experience add",
+      "type": "command",
+      "description": "Thêm kinh nghiệm (global / device / player)."
+    },
+    "experience.catalog": {
+      "name": "catalog",
+      "path": "experience catalog",
+      "type": "command",
+      "description": "Phân loại kinh nghiệm theo device_type + player_line."
+    },
+    "experience.contribute": {
+      "name": "contribute",
+      "path": "experience contribute",
+      "type": "group",
+      "description": "Đóng góp kinh nghiệm từ máy user về repo (queue local → inbox PR).",
+      "subcommands": [
+        "export",
+        "login",
+        "promote",
+        "status",
+        "submit"
+      ]
+    },
+    "experience.contribute.export": {
+      "name": "export",
+      "path": "experience contribute export",
+      "type": "command",
+      "description": "Export entry pending (stdout hoặc --out)."
+    },
+    "experience.contribute.login": {
+      "name": "login",
+      "path": "experience contribute login",
+      "type": "command",
+      "description": "Đăng nhập GitHub qua gh auth login (web browser)."
+    },
+    "experience.contribute.promote": {
+      "name": "promote",
+      "path": "experience contribute promote",
+      "type": "command",
+      "description": "Copy queue pending vào ~/.cli-fpp/experiences.json (không cần PR)."
+    },
+    "experience.contribute.status": {
+      "name": "status",
+      "path": "experience contribute status",
+      "type": "command",
+      "description": "Trạng thái hàng đợi contribute (~/.cli-fpp/contrib_queue.jsonl)."
+    },
+    "experience.contribute.submit": {
+      "name": "submit",
+      "path": "experience contribute submit",
+      "type": "command",
+      "description": "Gửi pending: --github (PR) hoặc ghi file inbox local."
+    },
+    "experience.list": {
+      "name": "list",
+      "path": "experience list",
+      "type": "command",
+      "description": "Liệt kê kinh nghiệm theo 3 tầng: chung / riêng device / riêng player."
+    },
+    "experience.remember": {
+      "name": "remember",
+      "path": "experience remember",
+      "type": "command",
+      "description": "Ghi nhớ — chọn tầng: chung / riêng device / riêng player."
+    },
+    "experience.remove": {
+      "name": "remove",
+      "path": "experience remove",
+      "type": "command",
+      "description": "Xóa kinh nghiệm do user thêm (không xóa bundled)."
+    },
+    "experience.show": {
+      "name": "show",
+      "path": "experience show",
+      "type": "command",
+      "description": "Chi tiết một kinh nghiệm."
+    },
+    "gpio": {
+      "name": "gpio",
+      "path": "gpio",
+      "type": "group",
+      "description": "GPIO pin control.",
+      "subcommands": [
+        "get",
+        "list",
+        "set"
+      ]
+    },
+    "gpio.get": {
+      "name": "get",
+      "path": "gpio get",
+      "type": "command",
+      "description": "Read GPIO pin value."
+    },
+    "gpio.list": {
+      "name": "list",
+      "path": "gpio list",
+      "type": "command",
+      "description": "List GPIO pins."
+    },
+    "gpio.set": {
+      "name": "set",
+      "path": "gpio set",
+      "type": "command",
+      "description": "Set GPIO pin output (0 or 1)."
+    },
+    "guide": {
+      "name": "guide",
+      "path": "guide",
+      "type": "group",
+      "description": "Hướng dẫn sử dụng FPP qua CLI và web UI.",
+      "subcommands": [
+        "show",
+        "topics"
+      ]
+    },
+    "guide.show": {
+      "name": "show",
+      "path": "guide show",
+      "type": "command",
+      "description": "Chi tiết hướng dẫn: start, playlist, volume, schedule, system, display."
+    },
+    "guide.topics": {
+      "name": "topics",
+      "path": "guide topics",
+      "type": "command",
+      "description": "Liệt kê chủ đề hướng dẫn."
+    },
+    "host": {
+      "name": "host",
+      "path": "host",
+      "type": "command",
+      "description": "Chuyển tiếp `host …` → `dev host …` (tương thích script cũ)."
+    },
+    "media": {
+      "name": "media",
+      "path": "media",
+      "type": "group",
+      "description": "Media and sequence files (file manager / playlist editor).",
+      "subcommands": [
+        "display-profile",
+        "duration",
+        "fetch",
+        "list",
+        "prepare-images",
+        "prepare-videos",
+        "propose",
+        "sequences",
+        "upload"
+      ]
+    },
+    "media.display-profile": {
+      "name": "display-profile",
+      "path": "media display-profile",
+      "type": "command",
+      "description": "Khung hiển thị thiết bị (SSH) — portrait/landscape, canvas fb0."
+    },
+    "media.duration": {
+      "name": "duration",
+      "path": "media duration",
+      "type": "command",
+      "description": "Get media file duration."
+    },
+    "media.fetch": {
+      "name": "fetch",
+      "path": "media fetch",
+      "type": "command",
+      "description": "Tải ảnh từ URL về local (để agent upload sau)."
+    },
+    "media.list": {
+      "name": "list",
+      "path": "media list",
+      "type": "command",
+      "description": "List media files."
+    },
+    "media.prepare-images": {
+      "name": "prepare-images",
+      "path": "media prepare-images",
+      "type": "command",
+      "description": "Rotate + resize ảnh local trước khi upload FPP."
+    },
+    "media.prepare-videos": {
+      "name": "prepare-videos",
+      "path": "media prepare-videos",
+      "type": "command",
+      "description": "Transpose + scale video (ffmpeg) trước khi upload FPP."
+    },
+    "media.propose": {
+      "name": "propose",
+      "path": "media propose",
+      "type": "command",
+      "description": "Kiểm tra thiết bị + ảnh (file/URL) → đề xuất xoay trước upload (không upload)."
+    },
+    "media.sequences": {
+      "name": "sequences",
+      "path": "media sequences",
+      "type": "command",
+      "description": "List sequence (.fseq) files."
+    },
+    "media.upload": {
+      "name": "upload",
+      "path": "media upload",
+      "type": "command",
+      "description": "Chuẩn bị (propose → transpose) rồi upload ảnh/video lên FPP (file, folder hoặc URL)."
+    },
+    "overlays": {
+      "name": "overlays",
+      "path": "overlays",
+      "type": "group",
+      "description": "Pixel overlays (pixeloverlaymodels.php).",
+      "subcommands": [
+        "models",
+        "running",
+        "settings",
+        "stop"
+      ]
+    },
+    "overlays.models": {
+      "name": "models",
+      "path": "overlays models",
+      "type": "command",
+      "description": "List overlay models."
+    },
+    "overlays.running": {
+      "name": "running",
+      "path": "overlays running",
+      "type": "command",
+      "description": "List running overlay effects."
+    },
+    "overlays.settings": {
+      "name": "settings",
+      "path": "overlays settings",
+      "type": "command",
+      "description": "Overlay settings."
+    },
+    "overlays.stop": {
+      "name": "stop",
+      "path": "overlays stop",
+      "type": "command",
+      "description": "Stop all effects on an overlay model."
+    },
+    "ping": {
+      "name": "ping",
+      "path": "ping",
+      "type": "command",
+      "description": "Check connectivity to the FPP instance."
+    },
+    "player": {
+      "name": "player",
+      "path": "player",
+      "type": "group",
+      "description": "Player status — what is playing now (index.php).",
+      "subcommands": [
+        "current",
+        "status"
+      ]
+    },
+    "player.current": {
+      "name": "current",
+      "path": "player current",
+      "type": "command",
+      "description": "Current playlist info."
+    },
+    "player.status": {
+      "name": "status",
+      "path": "player status",
+      "type": "command",
+      "description": "Detailed player status."
+    },
+    "playlist": {
+      "name": "playlist",
+      "path": "playlist",
+      "type": "group",
+      "description": "Playlist management and playback.",
+      "subcommands": [
+        "get",
+        "list",
+        "next",
+        "pause",
+        "play",
+        "prev",
+        "stop"
+      ]
+    },
+    "playlist.get": {
+      "name": "get",
+      "path": "playlist get",
+      "type": "command",
+      "description": "Get playlist JSON."
+    },
+    "playlist.list": {
+      "name": "list",
+      "path": "playlist list",
+      "type": "command",
+      "description": "List playlist names."
+    },
+    "playlist.next": {
+      "name": "next",
+      "path": "playlist next",
+      "type": "command",
+      "description": "Skip to next playlist item."
+    },
+    "playlist.pause": {
+      "name": "pause",
+      "path": "playlist pause",
+      "type": "command",
+      "description": "Pause playlist."
+    },
+    "playlist.play": {
+      "name": "play",
+      "path": "playlist play",
+      "type": "command",
+      "description": "Start playing a playlist."
+    },
+    "playlist.prev": {
+      "name": "prev",
+      "path": "playlist prev",
+      "type": "command",
+      "description": "Go to previous playlist item."
+    },
+    "playlist.stop": {
+      "name": "stop",
+      "path": "playlist stop",
+      "type": "command",
+      "description": "Stop the current playlist."
+    },
+    "repl": {
+      "name": "repl",
+      "path": "repl",
+      "type": "command",
+      "description": "Interactive REPL (default when no subcommand given)."
+    },
+    "schedule": {
+      "name": "schedule",
+      "path": "schedule",
+      "type": "group",
+      "description": "Schedule management.",
+      "subcommands": [
+        "extend",
+        "list",
+        "next",
+        "reload"
+      ]
+    },
+    "schedule.extend": {
+      "name": "extend",
+      "path": "schedule extend",
+      "type": "command",
+      "description": "Extend current scheduled playlist (scheduler.php)."
+    },
+    "schedule.list": {
+      "name": "list",
+      "path": "schedule list",
+      "type": "command",
+      "description": "List schedules."
+    },
+    "schedule.next": {
+      "name": "next",
+      "path": "schedule next",
+      "type": "command",
+      "description": "Force-start next scheduled item."
+    },
+    "schedule.reload": {
+      "name": "reload",
+      "path": "schedule reload",
+      "type": "command",
+      "description": "Reload schedule configuration."
+    },
+    "sequence": {
+      "name": "sequence",
+      "path": "sequence",
+      "type": "group",
+      "description": "Sequence transport (index.php pause/step).",
+      "subcommands": [
+        "pause",
+        "step",
+        "stop"
+      ]
+    },
+    "sequence.pause": {
+      "name": "pause",
+      "path": "sequence pause",
+      "type": "command",
+      "description": "Toggle sequence pause/resume (ToggleSequencePause)."
+    },
+    "sequence.step": {
+      "name": "step",
+      "path": "sequence step",
+      "type": "command",
+      "description": "Step paused sequence one frame."
+    },
+    "sequence.stop": {
+      "name": "stop",
+      "path": "sequence stop",
+      "type": "command",
+      "description": "Stop current sequence."
+    },
+    "suggest": {
+      "name": "suggest",
+      "path": "suggest",
+      "type": "command",
+      "description": "Đọc prompt tự nhiên → đề xuất lệnh CLI + cách làm trên web UI + câu confirm."
+    },
+    "system": {
+      "name": "system",
+      "path": "system",
+      "type": "group",
+      "description": "System and fppd status.",
+      "subcommands": [
+        "fppd",
+        "fppd-start",
+        "fppd-stop",
+        "info",
+        "reboot",
+        "restart",
+        "shutdown",
+        "status",
+        "version",
+        "volume"
+      ]
+    },
+    "system.fppd": {
+      "name": "fppd",
+      "path": "system fppd",
+      "type": "command",
+      "description": "Get fppd daemon status."
+    },
+    "system.fppd-start": {
+      "name": "fppd-start",
+      "path": "system fppd-start",
+      "type": "command",
+      "description": "Start fppd daemon (ControlFPPD button)."
+    },
+    "system.fppd-stop": {
+      "name": "fppd-stop",
+      "path": "system fppd-stop",
+      "type": "command",
+      "description": "Stop fppd daemon."
+    },
+    "system.info": {
+      "name": "info",
+      "path": "system info",
+      "type": "command",
+      "description": "Get FPP system info."
+    },
+    "system.reboot": {
+      "name": "reboot",
+      "path": "system reboot",
+      "type": "command",
+      "description": "Reboot the FPP host."
+    },
+    "system.restart": {
+      "name": "restart",
+      "path": "system restart",
+      "type": "command",
+      "description": "Restart fppd."
+    },
+    "system.shutdown": {
+      "name": "shutdown",
+      "path": "system shutdown",
+      "type": "command",
+      "description": "Shutdown the FPP host."
+    },
+    "system.status": {
+      "name": "status",
+      "path": "system status",
+      "type": "command",
+      "description": "Get FPP system status."
+    },
+    "system.version": {
+      "name": "version",
+      "path": "system version",
+      "type": "command",
+      "description": "Get fppd version."
+    },
+    "system.volume": {
+      "name": "volume",
+      "path": "system volume",
+      "type": "command",
+      "description": "Get or set volume (index.php slider)."
+    },
+    "target": {
+      "name": "target",
+      "path": "target",
+      "type": "group",
+      "description": "Quản lý nhiều thiết bị FPP từ máy client (remote).",
+      "subcommands": [
+        "add",
+        "audit",
+        "catalog",
+        "device-types",
+        "list",
+        "remove",
+        "setup",
+        "show",
+        "use"
+      ]
+    },
+    "target.add": {
+      "name": "add",
+      "path": "target add",
+      "type": "command",
+      "description": "Thêm/cập nhật target (FPP URL + SSH cho dev)."
+    },
+    "target.audit": {
+      "name": "audit",
+      "path": "target audit",
+      "type": "command",
+      "description": "Kiểm tra phiên bản FPP trên tất cả target-device."
+    },
+    "target.catalog": {
+      "name": "catalog",
+      "path": "target catalog",
+      "type": "command",
+      "description": "Phân loại Target (thiết bị) + Player (FPP version)."
+    },
+    "target.device-types": {
+      "name": "device-types",
+      "path": "target device-types",
+      "type": "command",
+      "description": "Danh sách loại thiết bị Target hỗ trợ."
+    },
+    "target.list": {
+      "name": "list",
+      "path": "target list",
+      "type": "command",
+      "description": "Liệt kê target đã lưu + default/active."
+    },
+    "target.remove": {
+      "name": "remove",
+      "path": "target remove",
+      "type": "command",
+      "description": "Xóa target khỏi config."
+    },
+    "target.setup": {
+      "name": "setup",
+      "path": "target setup",
+      "type": "command",
+      "description": "Briefing: số target đang quản lý → thêm (batch/từng cái) → kiểm tra FPP."
+    },
+    "target.show": {
+      "name": "show",
+      "path": "target show",
+      "type": "command",
+      "description": "Xem profile một target (mặc định: active/default)."
+    },
+    "target.use": {
+      "name": "use",
+      "path": "target use",
+      "type": "command",
+      "description": "Chọn target mặc định (lưu vào config)."
+    }
+  }
+}

@@ -14,6 +14,11 @@ def list_playlists(*, base_url: str | None = None) -> list[str]:
     return []
 
 
+def list_playable(*, base_url: str | None = None) -> Any:
+    """Validated playlists — same source as index.php playlist dropdown."""
+    return api.api_get("/api/playlists/validate", base_url=base_url)
+
+
 def get_playlist(name: str, *, merge_subs: bool = False, base_url: str | None = None) -> Any:
     params = {"mergeSubs": "1"} if merge_subs else None
     return api.api_get(f"/api/playlist/{name}", base_url=base_url, params=params)
@@ -32,11 +37,12 @@ def play(
 
 
 def stop(*, graceful: bool = True, after_loop: bool = False, base_url: str | None = None) -> Any:
+    """Stop via REST — matches index.php StopNow / StopGracefully buttons."""
     if after_loop:
-        return api.api_get(api.command_path("Stop Gracefully", "true"), base_url=base_url)
+        return api.api_get("/api/playlists/stopgracefullyafterloop", base_url=base_url)
     if graceful:
-        return api.api_get(api.command_path("Stop Gracefully"), base_url=base_url)
-    return api.api_get(api.command_path("Stop Now"), base_url=base_url)
+        return api.api_get("/api/playlists/stopgracefully", base_url=base_url)
+    return api.api_get("/api/playlists/stop", base_url=base_url)
 
 
 def next_item(*, base_url: str | None = None) -> Any:

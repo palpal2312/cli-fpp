@@ -7,3 +7,5 @@ venv/
 dist/
 build/
 *.egg
+agent-harness/cli_fpp/skills/SKILL_RUN_LOG.jsonl
+.cursor/

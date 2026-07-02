@@ -28,6 +28,10 @@ def run_json(payload: dict[str, Any], *, base_url: str | None = None) -> Any:
     return api.api_post("/api/command", payload, base_url=base_url)
 
 
+def list_presets(*, base_url: str | None = None) -> Any:
+    return api.api_get("/api/commandPresets", base_url=base_url)
+
+
 def trigger_preset(name_or_slot: str, *, base_url: str | None = None) -> Any:
     if name_or_slot.isdigit():
         return api.api_get(

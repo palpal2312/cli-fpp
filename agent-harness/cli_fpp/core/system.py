@@ -23,9 +23,25 @@ def fppd_version(*, base_url: str | None = None) -> Any:
     return api.api_get("/api/fppd/version", base_url=base_url)
 
 
+def fppd_start(*, base_url: str | None = None) -> Any:
+    return api.api_get("/api/system/fppd/start", base_url=base_url)
+
+
+def fppd_stop(*, base_url: str | None = None) -> Any:
+    return api.api_get("/api/system/fppd/stop", base_url=base_url)
+
+
 def fppd_restart(*, quick: bool = True, base_url: str | None = None) -> Any:
     params = {"quick": "true"} if quick else None
     return api.api_get("/api/system/fppd/restart", base_url=base_url, params=params)
+
+
+def volume_get(*, base_url: str | None = None) -> Any:
+    return api.api_get("/api/system/volume", base_url=base_url)
+
+
+def volume_set(level: int, *, base_url: str | None = None) -> Any:
+    return api.api_post("/api/system/volume", {"volume": level}, base_url=base_url)
 
 
 def reboot(*, base_url: str | None = None) -> Any:

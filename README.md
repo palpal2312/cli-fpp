@@ -1,16 +1,46 @@
 # cli-fpp
 
-Command-line client for [Falcon Player (FPP)](https://github.com/FalconChristmas/fpp).
+Điều khiển [Falcon Player (FPP)](https://github.com/FalconChristmas/fpp) **song song** với web UI — bằng prompt qua AI agents (Cursor, Claude Code, Codex, Gemini, Hermes, OpenClaw, …).
 
-**Đây là repo độc lập**, không phải fork của FPP hay CLI-Anything. Chỉ wrap REST API của FPP; thiết kế tham khảo [CLI-Anything HARNESS](https://github.com/HKUDS/CLI-Anything).
+FPP vẫn chạy như bình thường trên Pi/BBB. Bạn vẫn mở `http://fpp.local` để cấu hình playlist, output, schedule. Đồng thời, agent trên PC gọi **cùng REST API** qua `cli-fpp` — không thay thế front-end, không cần SSH vào Pi.
 
-| Repo | Vai trò |
-|------|---------|
-| [palpal2312/fpp](https://github.com/palpal2312/fpp) | Fork FPP (upstream C++/PHP) |
-| **cli-fpp** (repo này) | Python CLI client, chạy trên PC |
-| [HKUDS/CLI-Anything](https://github.com/HKUDS/CLI-Anything) | Methodology tham khảo (không fork) |
+```
+                    ┌─────────────────────────────────┐
+                    │     FPP instance (fppd)         │
+                    │  Web UI  ←→  REST API /api/*    │
+                    └────────▲───────────────▲────────┘
+                             │               │
+              Browser        │               │  HTTP (--json)
+         (cấu hình, xem)   │               │
+                             │               │
+                    ┌────────┴───┐   ┌───────┴────────┐
+                    │  Con người  │   │  AI agents     │
+                    │  front-end  │   │  + cli-fpp     │
+                    └────────────┘   └────────────────┘
+```
 
-## Cài đặt
+## Mục tiêu
+
+| Ai dùng | Cách dùng |
+|---------|-----------|
+| Người | Web UI FPP như hiện tại |
+| Agent | `cli-fpp … --json` hoặc REPL; đọc `skills/cli-fpp/SKILL.md` |
+
+Agent và người thao tác **cùng một instance** — thay đổi qua web vẫn thấy qua CLI, và ngược lại.
+
+## Agent {#agent}
+
+Không giới hạn số target — đầy đủ core (media, playlist, schedule, player, multi-target `-t`).
+
+| Bước | Lệnh |
+|------|------|
+| Onboarding | `agent-harness/cli_fpp/skills/AGENT_ONBOARDING.md` |
+| Cài | `pip install -e agent-harness/.[dev]` hoặc `pip install cli-fpp` |
+| Kiểm tra | `cli-fpp doctor --json` |
+| Skill | `npx skills add palpal2312/cli-fpp --skill cli-fpp -g -y` |
+| Python API | `from cli_fpp.core import agent_tools` |
+
+## Cài đặt (máy chạy agent)
 
 ```bash
 cd agent-harness
@@ -19,18 +49,37 @@ export FPP_BASE_URL=http://fpp.local
 cli-fpp ping
 ```
 
-## Contribute lên FPP
+## Gắn skill cho agent
 
-FPP team thường chấp nhận:
-- Link tool bên ngoài trong `docs/`
-- Hoặc thư mục `tools/cli-fpp/` nếu muốn bundle
+```bash
+# Cursor / Claude Code / các tool hỗ trợ skills
+npx skills add palpal2312/cli-fpp --skill cli-fpp -g -y
+```
 
-Không merge Python client vào core `fppd` — FPP đã chuyển sang REST API thay cho CLI `fpp` cũ.
+Hoặc trỏ agent đọc `skills/cli-fpp/SKILL.md` trong repo.
+
+## Ví dụ prompt → lệnh
+
+| Prompt (ý người dùng) | Agent chạy |
+|------------------------|------------|
+| "FPP đang chạy gì?" | `cli-fpp player status --json` (hoặc `system status` nếu API OK) |
+| "Play playlist Holiday" | `cli-fpp playlist play Holiday --repeat` |
+| "Tắt show nhẹ nhàng" | `cli-fpp playlist stop` |
+| "Volume 70" | `cli-fpp command run "Volume Set" 70` |
+
+Luôn dùng `--json` khi agent cần parse kết quả.
+
+## Repo liên quan
+
+| Repo | Vai trò |
+|------|---------|
+| [palpal2312/fpp](https://github.com/palpal2312/fpp) | Fork FPP (upstream) |
+| **cli-fpp** | Agent/CLI client (repo này) |
 
 ## Layout
 
 ```
 cli-fpp/
-├── agent-harness/cli_fpp/   # Python package
-└── skills/cli-fpp/SKILL.md  # Agent skill (optional)
+├── agent-harness/cli_fpp/   # Python package, lệnh `cli-fpp`
+└── skills/cli-fpp/SKILL.md  # Hướng dẫn cho agents
 ```
