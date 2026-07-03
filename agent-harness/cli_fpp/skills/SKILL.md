@@ -27,10 +27,10 @@ Docs live: `{base}/api/` · OpenAPI: `{base}/api/openapi.json`
 
 ## Workflow agent
 
-1. `cli-fpp suggest "<prompt>" --json` — ý định, display, CLI + web, confirm
+1. `cli-fpp --json suggest "<prompt>"` — ý định, display, CLI + web, confirm
 2. Trình bày theo `display_preference` (json / brief / table)
 3. Confirm nếu `confirmation_required`
-4. `cli-fpp --yes <cmd> --json` hoặc `--dry-run`
+4. `cli-fpp --json --yes <cmd>` hoặc `--dry-run`
 
 ## cli-fpp đã wrap
 
@@ -480,7 +480,7 @@ pip install -e "agent-harness/.[dev]"   # dev từ repo
 ## 2. Kiểm tra môi trường
 
 ```bash
-cli-fpp doctor --json
+cli-fpp --json doctor
 ```
 
 Top-level `doctor` = controller (Python, git, gh, config). `dev doctor` = SSH/target Orange Pi.
@@ -490,13 +490,13 @@ Top-level `doctor` = controller (Python, git, gh, config). `dev doctor` = SSH/ta
 ```bash
 cli-fpp target add shop-a --fpp-url http://192.168.1.10:81 --fpp-user admin --fpp-password <secret>
 cli-fpp target use shop-a
-cli-fpp ping --json
+cli-fpp --json ping
 ```
 
 ## 4. Bắt đầu chiến dịch (một màn)
 
 ```bash
-cli-fpp suggest "chạy banner Tết trên cửa hàng" --json
+cli-fpp --json suggest "chạy banner Tết trên cửa hàng"
 cli-fpp guide campaign
 ```
 
@@ -585,7 +585,7 @@ cli-fpp --url http://192.168.1.39:81 -u admin -p <secret> --json player status
 
 ### Client vs dev — `suggest` tự phân loại
 
-`cli-fpp suggest "<prompt>" --json` trả `cli_scope` (`client` | `dev`) và `scope_hint`.
+`cli-fpp --json suggest "<prompt>"` trả `cli_scope` (`client` | `dev`) và `scope_hint`.
 
 | cli_scope | User nói gì | Lệnh |
 |-----------|-------------|------|
@@ -738,7 +738,7 @@ python agent-harness/scripts/sync_skill_hooks.py --from-shell "cli-fpp player st
 - **Thiếu HTTP auth → 401** `[connection, auth, campaign]`: Luôn cấu hình username/password trong target profile hoặc -u/-p. FPP port 81 thường dùng admin.
 - **Chiến dịch màn dọc: transpose trước upload** `[campaign, media, display]`: Portrait signage: media upload --auto-orient + kiểm tra dev host display rotate. FPP không xoay ảnh trong player.
 - **QR trên banner creative** `[campaign, media]`: Nhúng QR trong file ảnh creative hoặc FPP Image playlist entry.
-- **Schedule giờ cao điểm** `[campaign, schedule]`: Giờ cao điểm: tạo schedule trên web UI → cli-fpp schedule list --json → schedule reload sau khi sửa.
+- **Schedule giờ cao điểm** `[campaign, schedule]`: Giờ cao điểm: tạo schedule trên web UI → cli-fpp --json schedule list → schedule reload sau khi sửa.
 - **Nhiều cửa hàng = nhiều target** `[campaign, connection]`: Mỗi màn một target profile. Lặp lệnh với -t shop-a / -t shop-b hoặc gọi cli-fpp từ script/agent bên ngoài.
 
 #### Device-specific

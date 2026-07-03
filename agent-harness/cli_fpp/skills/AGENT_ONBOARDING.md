@@ -12,7 +12,7 @@ pip install -e "agent-harness/.[dev]"   # dev từ repo
 ## 2. Kiểm tra môi trường
 
 ```bash
-cli-fpp doctor --json
+cli-fpp --json doctor
 ```
 
 Top-level `doctor` = controller (Python, git, gh, config). `dev doctor` = SSH/target Orange Pi.
@@ -22,13 +22,13 @@ Top-level `doctor` = controller (Python, git, gh, config). `dev doctor` = SSH/ta
 ```bash
 cli-fpp target add shop-a --fpp-url http://192.168.1.10:81 --fpp-user admin --fpp-password <secret>
 cli-fpp target use shop-a
-cli-fpp ping --json
+cli-fpp --json ping
 ```
 
 ## 4. Bắt đầu chiến dịch (một màn)
 
 ```bash
-cli-fpp suggest "chạy banner Tết trên cửa hàng" --json
+cli-fpp --json suggest "chạy banner Tết trên cửa hàng"
 cli-fpp guide campaign
 ```
 

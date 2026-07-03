@@ -15,8 +15,8 @@
     "suggest_override": {
       "when_intent": "system_status",
       "proposed_cli": [
-        "cli-fpp player status --json",
-        "cli-fpp player current --json"
+        "cli-fpp --json player status",
+        "cli-fpp --json player current"
       ]
     }
   },
@@ -45,7 +45,7 @@
     "id": "global.campaign-schedule-peak",
     "scope": "global",
     "title": "Schedule giờ cao điểm",
-    "body": "Giờ cao điểm: tạo schedule trên web UI → cli-fpp schedule list --json → schedule reload sau khi sửa.",
+    "body": "Giờ cao điểm: tạo schedule trên web UI → cli-fpp --json schedule list → schedule reload sau khi sửa.",
     "tags": ["campaign", "schedule"]
   },
   {

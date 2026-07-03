@@ -71,10 +71,10 @@ Docs live: `{base}/api/` · OpenAPI: `{base}/api/openapi.json`
 
 ## Workflow agent
 
-1. `cli-fpp suggest "<prompt>" --json` — ý định, display, CLI + web, confirm
+1. `cli-fpp --json suggest "<prompt>"` — ý định, display, CLI + web, confirm
 2. Trình bày theo `display_preference` (json / brief / table)
 3. Confirm nếu `confirmation_required`
-4. `cli-fpp --yes <cmd> --json` hoặc `--dry-run`
+4. `cli-fpp --json --yes <cmd>` hoặc `--dry-run`
 
 ## cli-fpp đã wrap
 

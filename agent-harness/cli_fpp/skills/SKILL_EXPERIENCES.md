@@ -62,7 +62,7 @@ cli-fpp --url http://192.168.1.39:81 -u admin -p <secret> --json player status
 
 ### Client vs dev — `suggest` tự phân loại
 
-`cli-fpp suggest "<prompt>" --json` trả `cli_scope` (`client` | `dev`) và `scope_hint`.
+`cli-fpp --json suggest "<prompt>"` trả `cli_scope` (`client` | `dev`) và `scope_hint`.
 
 | cli_scope | User nói gì | Lệnh |
 |-----------|-------------|------|
@@ -215,7 +215,7 @@ python agent-harness/scripts/sync_skill_hooks.py --from-shell "cli-fpp player st
 - **Thiếu HTTP auth → 401** `[connection, auth, campaign]`: Luôn cấu hình username/password trong target profile hoặc -u/-p. FPP port 81 thường dùng admin.
 - **Chiến dịch màn dọc: transpose trước upload** `[campaign, media, display]`: Portrait signage: media upload --auto-orient + kiểm tra dev host display rotate. FPP không xoay ảnh trong player.
 - **QR trên banner creative** `[campaign, media]`: Nhúng QR trong file ảnh creative hoặc FPP Image playlist entry.
-- **Schedule giờ cao điểm** `[campaign, schedule]`: Giờ cao điểm: tạo schedule trên web UI → cli-fpp schedule list --json → schedule reload sau khi sửa.
+- **Schedule giờ cao điểm** `[campaign, schedule]`: Giờ cao điểm: tạo schedule trên web UI → cli-fpp --json schedule list → schedule reload sau khi sửa.
 - **Nhiều cửa hàng = nhiều target** `[campaign, connection]`: Mỗi màn một target profile. Lặp lệnh với -t shop-a / -t shop-b hoặc gọi cli-fpp từ script/agent bên ngoài.
 
 #### Device-specific

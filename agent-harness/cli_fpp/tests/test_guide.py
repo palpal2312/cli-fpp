@@ -26,6 +26,12 @@ class TestSuggest:
         assert "Holiday" in r["proposed_cli"][0]
         assert "--repeat" in r["proposed_cli"][0]
 
+    def test_play_playlist_without_quotes(self):
+        r = guide.suggest("play playlist Holiday repeat")
+        assert r["interpreted_intent"] == "play_playlist"
+        assert '"Holiday"' in r["proposed_cli"][0]
+        assert r["proposed_cli"][0].startswith("cli-fpp --json playlist play")
+
     def test_status(self):
         r = guide.suggest("FPP đang chạy gì, hiển thị json")
         assert r["understood"] is True

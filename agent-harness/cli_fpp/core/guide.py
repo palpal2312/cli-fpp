@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import shlex
 from typing import Any, Literal
 
 from cli_fpp.core import experiences as exp_mod
@@ -24,8 +25,8 @@ GUIDES: dict[str, dict[str, Any]] = {
         "cli": [
             "export FPP_BASE_URL=http://fpp.local",
             "cli-fpp ping",
-            "cli-fpp system status --json",
-            "cli-fpp playlist list --json",
+            "cli-fpp --json system status",
+            "cli-fpp --json playlist list",
         ],
         "web_ui": [
             "Mở trình duyệt: http://<fpp-host>/",
@@ -41,11 +42,11 @@ GUIDES: dict[str, dict[str, Any]] = {
         "title": "Playlist — phát / dừng show",
         "summary": "Quản lý và phát playlist trên FPP.",
         "cli": [
-            "cli-fpp playlist list --json",
-            "cli-fpp playlist get \"TênPlaylist\" --json",
-            "cli-fpp playlist play \"TênPlaylist\" --repeat --json",
-            "cli-fpp playlist stop --json",
-            "cli-fpp playlist stop --now --json",
+            "cli-fpp --json playlist list",
+            "cli-fpp --json playlist get \"TênPlaylist\"",
+            "cli-fpp --json playlist play \"TênPlaylist\" --repeat",
+            "cli-fpp --json playlist stop",
+            "cli-fpp --json playlist stop --now",
         ],
         "web_ui": [
             "Status/Control → Playlists",
@@ -61,7 +62,7 @@ GUIDES: dict[str, dict[str, Any]] = {
         "title": "Âm lượng",
         "summary": "Đặt volume media trên FPP.",
         "cli": [
-            "cli-fpp command run \"Volume Set\" 70 --json",
+            "cli-fpp --json command run \"Volume Set\" 70",
         ],
         "web_ui": [
             "Status/Control → Volume slider",
@@ -73,8 +74,8 @@ GUIDES: dict[str, dict[str, Any]] = {
         "title": "Lịch tự động (Schedule)",
         "summary": "Xem và reload lịch phát.",
         "cli": [
-            "cli-fpp schedule list --json",
-            "cli-fpp schedule reload --json",
+            "cli-fpp --json schedule list",
+            "cli-fpp --json schedule reload",
         ],
         "web_ui": [
             "Schedule → xem/sửa lịch",
@@ -86,9 +87,9 @@ GUIDES: dict[str, dict[str, Any]] = {
         "title": "Hệ thống / fppd",
         "summary": "Trạng thái daemon và khởi động lại.",
         "cli": [
-            "cli-fpp system status --json",
-            "cli-fpp system fppd --json",
-            "cli-fpp system restart --json",
+            "cli-fpp --json system status",
+            "cli-fpp --json system fppd",
+            "cli-fpp --json system restart",
         ],
         "web_ui": [
             "System → Status",
@@ -101,7 +102,7 @@ GUIDES: dict[str, dict[str, Any]] = {
         "summary": "Đọc preference từ prompt user và format output.",
         "cli": [
             "cli-fpp --json <lệnh>          # JSON cho agent",
-            "cli-fpp suggest \"...\" --json   # Kế hoạch có display_preference",
+            "cli-fpp --json suggest \"...\"   # Kế hoạch có display_preference",
         ],
         "web_ui": [
             "User muốn 'xem trên web' → hướng dẫn mở trang tương ứng, không chỉ chạy CLI",
@@ -120,7 +121,7 @@ GUIDES: dict[str, dict[str, Any]] = {
             "cli-fpp --json media display-profile",
             "cli-fpp --json media fetch https://... --dest ./.uploads",
             "cli-fpp --json --yes media upload \"<path-hoặc-url>\"",
-            "cli-fpp playlist play \"Haruhi_Test\" --repeat --json",
+            "cli-fpp --json playlist play \"Haruhi_Test\" --repeat",
         ],
         "web_ui": [
             "Content Manager → File Manager → images (hoặc videos)",
@@ -139,14 +140,14 @@ GUIDES: dict[str, dict[str, Any]] = {
         "title": "Chiến dịch quảng cáo — một màn",
         "summary": "Upload creative → playlist → play hoặc schedule → kiểm tra player. Không batch trong CLI.",
         "cli": [
-            "cli-fpp target list --json",
-            "cli-fpp -t shop-a ping",
+            "cli-fpp --json target list",
+            "cli-fpp --json -t shop-a ping",
             "cli-fpp --json media propose ./banner.jpg",
             "cli-fpp --json --yes media upload ./banner.jpg",
-            "cli-fpp playlist list --json",
-            'cli-fpp playlist play "Campaign" --repeat --json',
-            "cli-fpp player current --json",
-            "cli-fpp schedule list --json",
+            "cli-fpp --json playlist list",
+            'cli-fpp --json playlist play "Campaign" --repeat',
+            "cli-fpp --json player current",
+            "cli-fpp --json schedule list",
         ],
         "web_ui": [
             "Content Manager → upload ảnh/video creative",
@@ -366,7 +367,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "system_status",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": False,
-        "build_cli": lambda _m, _: ["cli-fpp system status --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json system status"],
         "web_ui": lambda _: ["Mở trang chủ FPP → xem Status/Control"],
     },
     {
@@ -376,7 +377,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "destructive": True,
         "needs_playlist_name": True,
         "build_cli": lambda m, name: [
-            f'cli-fpp playlist play "{name}"' + (" --repeat" if m.get("repeat") else "") + " --json"
+            f'cli-fpp --json playlist play "{name}"' + (" --repeat" if m.get("repeat") else "")
         ],
         "web_ui": lambda name: [
             f"Status/Control → Playlists → chọn '{name}' → Play"
@@ -390,7 +391,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "destructive": True,
         "unless": [r"\brestart\b", r"\bfppd\b"],
         "build_cli": lambda m, _: [
-            "cli-fpp playlist stop --now --json" if m.get("immediate") else "cli-fpp playlist stop --json"
+            "cli-fpp --json playlist stop --now" if m.get("immediate") else "cli-fpp --json playlist stop"
         ],
         "web_ui": lambda _: ["Status/Control → Stop Now hoặc Stop Gracefully"],
     },
@@ -399,7 +400,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "set_volume",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": True,
-        "build_cli": lambda m, _: [f'cli-fpp command run "Volume Set" {m.get("volume", 80)} --json'],
+        "build_cli": lambda m, _: [f'cli-fpp --json command run "Volume Set" {m.get("volume", 80)}'],
         "web_ui": lambda _: ["Status/Control → kéo thanh Volume"],
     },
     {
@@ -407,7 +408,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "list_playlists",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": False,
-        "build_cli": lambda _m, _: ["cli-fpp playlist list --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json playlist list"],
         "web_ui": lambda _: ["Content Manager → Playlists"],
     },
     {
@@ -415,7 +416,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "reload_schedule",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": True,
-        "build_cli": lambda _m, _: ["cli-fpp schedule reload --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json schedule reload"],
         "web_ui": lambda _: ["Schedule → Reload Schedule"],
     },
     {
@@ -423,7 +424,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "restart_fppd",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": True,
-        "build_cli": lambda _m, _: ["cli-fpp system restart --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json system restart"],
         "web_ui": lambda _: ["Menu → Restart FPPD"],
     },
     {
@@ -431,7 +432,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "pause_playlist",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": True,
-        "build_cli": lambda _m, _: ["cli-fpp playlist pause --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json playlist pause"],
         "web_ui": lambda _: ["Status/Control → Pause"],
     },
     {
@@ -439,7 +440,7 @@ _INTENT_RULES: list[dict[str, Any]] = [
         "intent": "next_item",
         "scope": CLI_SCOPE_CLIENT,
         "destructive": True,
-        "build_cli": lambda _m, _: ["cli-fpp playlist next --json"],
+        "build_cli": lambda _m, _: ["cli-fpp --json playlist next"],
         "web_ui": lambda _: ["Status/Control → Next Item"],
     },
     {
@@ -525,7 +526,10 @@ def get_guide(topic: str) -> dict[str, Any]:
     if key not in GUIDES:
         available = ", ".join(list_topics())
         raise ValueError(f"Unknown topic '{topic}'. Available: {available}")
-    return {"topic": key, **GUIDES[key]}
+    guide = {"topic": key, **GUIDES[key]}
+    if isinstance(guide.get("cli"), list):
+        guide["cli"] = _normalize_cli_list(guide["cli"])
+    return guide
 
 
 def parse_display_preference(prompt: str) -> dict[str, str]:
@@ -542,13 +546,15 @@ def _extract_playlist_name(prompt: str) -> str | None:
     m = re.search(r'["\']([^"\']+)["\']', prompt)
     if m:
         return m.group(1).strip()
-    # "playlist X" / "play X" (not "chạy gì")
-    m = re.search(
-        r"(?:playlist|play|phát)\s+([A-Za-z0-9_\-][\w\-]*)",
-        prompt,
-        re.I,
+    patterns = (
+        r"(?:play|phát|chạy)\s+playlist\s+([A-Za-zÀ-ỹ0-9_\-][\wÀ-ỹ\-]*)",
+        r"playlist\s+([A-Za-zÀ-ỹ0-9_\-][\wÀ-ỹ\-]*)",
+        r"(?:play|phát|chạy)\s+([A-Za-zÀ-ỹ0-9_\-][\wÀ-ỹ\-]*)",
     )
-    if m:
+    for pattern in patterns:
+        m = re.search(pattern, prompt, re.I)
+        if not m:
+            continue
         name = m.group(1).strip()
         if name.lower() not in _INVALID_PLAYLIST_NAMES:
             return name
@@ -576,7 +582,7 @@ def _extract_campaign_name(prompt: str) -> str | None:
 
 
 def _build_campaign_cli(flags: dict[str, Any], campaign: str) -> list[str]:
-    steps = ["cli-fpp target list --json"]
+    steps = ["cli-fpp --json target list"]
     steps.extend(
         [
             'cli-fpp --json media propose "<creative-path>"',
@@ -585,10 +591,10 @@ def _build_campaign_cli(flags: dict[str, Any], campaign: str) -> list[str]:
     )
     if campaign:
         repeat = " --repeat" if flags.get("repeat") else ""
-        steps.append(f'cli-fpp playlist play "{campaign}"{repeat} --json')
+        steps.append(f'cli-fpp --json playlist play "{campaign}"{repeat}')
     else:
-        steps.append("cli-fpp playlist list --json")
-    steps.append("cli-fpp player current --json")
+        steps.append("cli-fpp --json playlist list")
+    steps.append("cli-fpp --json player current")
     return steps
 
 
@@ -692,6 +698,45 @@ def _match_intent(prompt: str) -> dict[str, Any] | None:
     return None
 
 
+# Global options phải đứng trước subcommand trong Click (cli-fpp --json <cmd>).
+_GLOBAL_FLAGS: tuple[str, ...] = ("--json", "--dry-run", "--yes", "-y")
+
+
+def _normalize_cli_command(command: str) -> str:
+    """Move global flags (e.g. --json) to right after `cli-fpp`."""
+    stripped = command.strip()
+    if not stripped.startswith("cli-fpp"):
+        return command
+    comment = ""
+    if "#" in stripped:
+        code, _, rest = stripped.partition("#")
+        stripped = code.rstrip()
+        comment = f"  # {rest.strip()}"
+    try:
+        parts = shlex.split(stripped, posix=False)
+    except ValueError:
+        return command
+    if not parts or parts[0] != "cli-fpp":
+        return command
+    body = parts[1:]
+    moved: list[str] = []
+    remaining: list[str] = []
+    for token in body:
+        if token in _GLOBAL_FLAGS:
+            if token not in moved:
+                moved.append(token)
+        else:
+            remaining.append(token)
+    if not moved:
+        return command
+    rebuilt = " ".join(["cli-fpp", *moved, *remaining])
+    return rebuilt + comment
+
+
+def _normalize_cli_list(commands: list[str]) -> list[str]:
+    return [_normalize_cli_command(c) for c in commands]
+
+
 def _apply_suggest_overrides(matched: dict[str, Any], *, target_name: str | None = None) -> dict[str, Any]:
     override = exp_mod.suggest_override_for_intent(intent=matched["intent"], target_name=target_name)
     if not override:
@@ -701,7 +746,7 @@ def _apply_suggest_overrides(matched: dict[str, Any], *, target_name: str | None
         use_cli = override.get("use_cli")
         if use_cli:
             cmd = use_cli.strip()
-            cli = [cmd if cmd.startswith("cli-fpp") else f"cli-fpp {cmd} --json"]
+            cli = [cmd if cmd.startswith("cli-fpp") else f"cli-fpp --json {cmd}"]
     if isinstance(cli, str):
         cli = [cli]
     if not cli:
@@ -782,7 +827,7 @@ def suggest(prompt: str, *, target_name: str | None = None) -> dict[str, Any]:
         "extracted": matched.get("extracted", {}),
         "confirmation_required": destructive,
         "confirmation_prompt": confirm_msg if destructive else None,
-        "proposed_cli": matched["proposed_cli"],
+        "proposed_cli": _normalize_cli_list(matched["proposed_cli"]),
         "proposed_web_ui": matched["proposed_web_ui"],
         "how_to_run": {
             "via_cli": (

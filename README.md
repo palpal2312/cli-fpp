@@ -24,7 +24,7 @@ FPP vẫn chạy như bình thường trên Pi/BBB. Bạn vẫn mở `http://fpp
 | Ai dùng | Cách dùng |
 |---------|-----------|
 | Người | Web UI FPP như hiện tại |
-| Agent | `cli-fpp … --json` hoặc REPL; đọc `skills/cli-fpp/SKILL.md` |
+| Agent | `cli-fpp --json …` hoặc REPL; đọc `skills/cli-fpp/SKILL.md` |
 
 Agent và người thao tác **cùng một instance** — thay đổi qua web vẫn thấy qua CLI, và ngược lại.
 
@@ -36,7 +36,7 @@ Không giới hạn số target — đầy đủ core (media, playlist, schedule
 |------|------|
 | Onboarding | `agent-harness/cli_fpp/skills/AGENT_ONBOARDING.md` |
 | Cài | `pip install -e agent-harness/.[dev]` hoặc `pip install cli-fpp` |
-| Kiểm tra | `cli-fpp doctor --json` |
+| Kiểm tra | `cli-fpp --json doctor` |
 | Skill | `npx skills add palpal2312/cli-fpp --skill cli-fpp -g -y` |
 | Python API | `from cli_fpp.core import agent_tools` |
 
@@ -58,11 +58,15 @@ npx skills add palpal2312/cli-fpp --skill cli-fpp -g -y
 
 Hoặc trỏ agent đọc `skills/cli-fpp/SKILL.md` trong repo.
 
+## Ví dụ sử dụng
+
+Xem các workflow mẫu trong [`examples/`](./examples/): setup target, điều khiển playlist, upload media, multi-target, và Python `agent_tools`.
+
 ## Ví dụ prompt → lệnh
 
 | Prompt (ý người dùng) | Agent chạy |
 |------------------------|------------|
-| "FPP đang chạy gì?" | `cli-fpp player status --json` (hoặc `system status` nếu API OK) |
+| "FPP đang chạy gì?" | `cli-fpp --json player status` (hoặc `system status` nếu API OK) |
 | "Play playlist Holiday" | `cli-fpp playlist play Holiday --repeat` |
 | "Tắt show nhẹ nhàng" | `cli-fpp playlist stop` |
 | "Volume 70" | `cli-fpp command run "Volume Set" 70` |
@@ -81,5 +85,6 @@ Luôn dùng `--json` khi agent cần parse kết quả.
 ```
 cli-fpp/
 ├── agent-harness/cli_fpp/   # Python package, lệnh `cli-fpp`
+├── examples/                # Workflow mẫu theo từng thư mục
 └── skills/cli-fpp/SKILL.md  # Hướng dẫn cho agents
 ```

@@ -19,7 +19,7 @@ cli-fpp config set base_url http://fpp.local
 
 ```bash
 cli-fpp ping
-cli-fpp system status --json
+cli-fpp --json system status
 cli-fpp playlist list
 cli-fpp playlist play "MyShow" --repeat
 cli-fpp command run "Volume Set" 80
